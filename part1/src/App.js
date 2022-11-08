@@ -19,15 +19,16 @@ const course = {
 
 function Part({ id, topic, exercises }) {
   return (
-    <div>
+    <h3>
       {topic} {exercises}
-    </div>
+    </h3>
   );
 }
 
 function Content({ course }) {
   return (
     <>
+      
       {course.map((x) => (
         <Part topic={x.topic} exercises={x.exercises} />
       ))}
@@ -36,7 +37,16 @@ function Content({ course }) {
 }
 
 function App() {
-  return <Content course={course.content} />;
+  return (
+    <>
+      <h2>{course.title}</h2>
+      <Content course={course.content} />
+      <h2>Total &nbsp;
+      {
+         course.content.reduce((a,b)=>a+b.exercises, 0)  
+       }</h2>
+    </>
+  );
 }
 
 export default App;
