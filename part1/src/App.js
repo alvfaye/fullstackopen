@@ -26,11 +26,11 @@ function Part({ id, topic, exercises }) {
 }
 
 function Content({ course }) {
+
   return (
     <>
-      
-      {course.map((x) => (
-        <Part topic={x.topic} exercises={x.exercises} />
+      {course.map((x, id) => (
+        <Part id={id} topic={x.topic} exercises={x.exercises} />
       ))}
     </>
   );
@@ -41,10 +41,10 @@ function App() {
     <>
       <h2>{course.title}</h2>
       <Content course={course.content} />
-      <h2>Total &nbsp;
-      {
-         course.content.reduce((a,b)=>a+b.exercises, 0)  
-       }</h2>
+      <h2>
+        Total &nbsp;
+        {course.content.reduce((a, b) => a + b.exercises, 0)}
+      </h2>
     </>
   );
 }
