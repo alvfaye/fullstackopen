@@ -26,7 +26,6 @@ function Part({ id, topic, exercises }) {
 }
 
 function Content({ course }) {
-
   return (
     <>
       {course.map((x, id) => (
@@ -37,6 +36,8 @@ function Content({ course }) {
 }
 
 function App() {
+  const hello = (who) => () => console.log('hello, ', who)
+  
   return (
     <>
       <h2>{course.title}</h2>
@@ -45,6 +46,11 @@ function App() {
         Total &nbsp;
         {course.content.reduce((a, b) => a + b.exercises, 0)}
       </h2>
+      {<>
+        <button onClick={hello('faye')}>faye</button>
+        <button onClick={hello('torya')}>torya</button>
+        </>
+      }
     </>
   );
 }
