@@ -29,7 +29,7 @@ function Content({ course }) {
   return (
     <>
       {course.map((x, id) => (
-        <Part id={id} topic={x.topic} exercises={x.exercises} />
+        <Part key={id} topic={x.topic} exercises={x.exercises} />
       ))}
     </>
   );
