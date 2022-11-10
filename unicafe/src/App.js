@@ -1,10 +1,12 @@
 import { useState } from 'react';
+
+const onClick = () => console.log('click');
 const Feedback = () => {
   return (
     <>
-      <Button text="good" />
-      <Button text="neutral" />
-      <Button text="bad" />
+      <Button text="good" onClick={onClick} />
+      <Button text="neutral" onClick={onClick} />
+      <Button text="bad" onClick={onClick} />
     </>
   );
 };
@@ -21,6 +23,7 @@ function App() {
     <div>
       <h1>give feedback</h1>
       <Feedback />
+      <h1>statistics</h1>
       <Statistics />
     </div>
   );
