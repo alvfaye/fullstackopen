@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './Button';
 const anecdotes = [
   'If it hurts, do it more often.',
   'Adding manpower to a late software project makes it later.',
@@ -13,8 +14,13 @@ function Anecdote() {
     <div className="mt-4">
       <h1 className="font-extrabold">Anecdote of the day</h1>
       <h2>{anecdotes[selected]}</h2>
-      <button>vote</button>
-      <button>next anecdote</button>
+      <hr className="mb-2" />
+      <Button text="vote" onClick={() => console.log('vote')} />
+      <Button
+        text="next anecdote"
+        onClick={() => console.log('next anecdote')}
+      />
+
       <h1>Anecdote with most votes</h1>
     </div>
   );
