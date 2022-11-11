@@ -32,7 +32,9 @@ function Anecdote() {
       <Button text="vote" onClick={clickVote} />
       <Button
         text="next anecdote"
-        onClick={() => console.log('next anecdote')}
+        onClick={() =>
+          setSelected(Math.floor(Math.random() * anecdotes.length))
+        }
       />
 
       <h1>Anecdote with most votes</h1>
