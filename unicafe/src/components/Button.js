@@ -2,9 +2,14 @@ import React from 'react';
 
 function Button({ text, onClick }) {
   return (
-    <div>
-      <button onClick={onClick}>{text}</button>
-    </div>
+    <>
+      <button
+        className="border-solid border-2 m-1 border-gray-500 p-1 rounded-lg"
+        onClick={onClick}
+      >
+        {text}
+      </button>
+    </>
   );
 }
 
