@@ -3,7 +3,14 @@ import { useState } from 'react';
 const onClick = () => console.log('click');
 const Button = (props) => {
   console.log('inside Button component...', props.text);
-  return <button onClick={props.onClick}>{props.text}</button>;
+  return (
+    <button
+      className="ml-1 border-solid border-2 border-teal-800 bg-yellow-400 rounded-md text-blue-900"
+      onClick={props.onClick}
+    >
+      {props.text}
+    </button>
+  );
 };
 const Feedback = () => {
   console.log('inside feedback');
