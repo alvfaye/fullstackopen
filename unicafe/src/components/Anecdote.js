@@ -20,6 +20,7 @@ function Anecdote() {
   const clickVote = () => {
     const copy = { ...points };
     copy[selected] += 1;
+
     console.log('vote ', copy[selected]);
   };
   return (
