@@ -23,14 +23,17 @@ const Feedback = ({ feedback }) => {
   );
 };
 const Statistics = ({ feedback, counter }) => {
-  console.log('good ', counter.good);
-  const total = counter.good + counter.neutral + counter.bad
+  // console.log('good ', counter.good);
+  const total = counter.good + counter.neutral + counter.bad;
+  const average = (counter.good + counter.bad * -1) / total;
   return (
     <>
       <h2>good {counter.good}</h2>
       <h2>neutral {counter.neutral}</h2>
       <h2>bad {counter.bad}</h2>
-      <h2>total {total}</h2>
+      <h2>all {total}</h2>
+      <h3>average {average?.toFixed(10)}</h3>
+      <h3>positive {((counter.good / total) * 100).toFixed(10)}%</h3>
     </>
   );
 };
