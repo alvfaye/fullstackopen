@@ -1,7 +1,12 @@
 import { useState } from 'react';
 
 const onClick = () => console.log('click');
+const Button = (props) => {
+  console.log('inside Button component...', props.text);
+  return <button onClick={props.onClick}>{props.text}</button>;
+};
 const Feedback = () => {
+  console.log('inside feedback');
   return (
     <>
       <Button text="good" onClick={onClick} />
@@ -11,9 +16,7 @@ const Feedback = () => {
   );
 };
 const Statistics = () => {};
-const Button = (props) => {
-  <button onClick={props.onClick}>{props.text}</button>;
-};
+
 function App() {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0);
