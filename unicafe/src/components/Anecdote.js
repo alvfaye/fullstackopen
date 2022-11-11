@@ -20,12 +20,14 @@ function Anecdote() {
   const clickVote = () => {
     const copy = { ...points };
     copy[selected] += 1;
-    console.log('vote ',copy[selected])
-  }
+    console.log('vote ', copy[selected]);
+  };
   return (
     <div className="mt-4">
       <h1 className="font-extrabold">Anecdote of the day</h1>
-      <h2>{anecdotes[selected]}</h2>
+      <h2>
+        {anecdotes[selected]} has {points[selected]} votes
+      </h2>
       <hr className="mb-2" />
       <Button text="vote" onClick={clickVote} />
       <Button
