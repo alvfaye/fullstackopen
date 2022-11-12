@@ -64,9 +64,9 @@ function Anecdote() {
 
       <h1 className="text-fuchsia-800 font-bold mt-7">
         Anecdote with most votes
-        <div>{anecdotes[topVote.index]}</div>
-        <div>has {topVote.value} votes</div>
       </h1>
+      <div>{anecdotes[topVote.index]}</div>
+      <div>has {topVote.value} votes</div>
     </div>
   );
 }
