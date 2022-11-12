@@ -28,8 +28,13 @@ function Anecdote() {
   const [selected, setSelected] = useState(0);
   const clickVote = () => {
     points[selected] += 1;
-    console.log('points',points)
+    setPoints((prevState) => {
+      return { ...prevState, [selected]: points[selected] };
+    });
+    console.log('points', points);
+    console.log('pt selected= ', points[selected]);
   };
+  const highestVotes = () => {};
   return (
     <div className="mt-4">
       <h1 className="font-extrabold">Anecdote of the day</h1>
