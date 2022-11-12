@@ -15,31 +15,20 @@ const anecdotes = [
   'Before software can be reusable it first has to be usable.',
   'Make it work, make it right, make it fast.',
 ];
-const points = {
-  0: 0,
-  1: 0,
-  2: 0,
-  3: 0,
-  4: 0,
-  5: 0,
-  6: 0,
-  7: 0,
-  8: 0,
-  9: 0,
-  10: 0,
-  11: 0,
-  12: 0,
-  // 13: 0,
-  // 14: 0,
-};
+
+let initialPoints = {};
+for (let i = 0; i < anecdotes.length; i++) {
+  initialPoints[i] = 0;
+}
+
+console.log('initialPoints', initialPoints);
 
 function Anecdote() {
+  const [points, setPoints] = useState(initialPoints);
   const [selected, setSelected] = useState(0);
   const clickVote = () => {
-    const copy = { ...points };
-    copy[selected] += 1;
-
-    console.log('vote ', copy[selected]);
+    points[selected] += 1;
+    console.log('points',points)
   };
   return (
     <div className="mt-4">
@@ -59,7 +48,9 @@ function Anecdote() {
         }
       />
 
-      <h1 className="text-fuchsia-800 font-bold mt-7">Anecdote with most votes</h1>
+      <h1 className="text-fuchsia-800 font-bold mt-7">
+        Anecdote with most votes
+      </h1>
     </div>
   );
 }
