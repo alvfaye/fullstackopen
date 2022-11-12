@@ -6,6 +6,14 @@ const anecdotes = [
   'Premature optimization is the root of all evil!',
   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
   'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+  'Ruby is rubbish! PHP is phpantastic!',
+  'Code is like humor.When you have to explain it, it’s bad.',
+  'Fix the cause, not the symptom.',
+  'Optimism is an occupational hazard of programming: feedback is the treatment.',
+  'When to use iterative development? You should use iterative development only on projects that you want to succeed.',
+  'Simplicity is the soul of efficiency.',
+  'Before software can be reusable it first has to be usable.',
+  'Make it work, make it right, make it fast.',
 ];
 const points = {
   0: 0,
@@ -13,6 +21,16 @@ const points = {
   2: 0,
   3: 0,
   4: 0,
+  5: 0,
+  6: 0,
+  7: 0,
+  8: 0,
+  9: 0,
+  10: 0,
+  11: 0,
+  12: 0,
+  // 13: 0,
+  // 14: 0,
 };
 
 function Anecdote() {
