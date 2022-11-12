@@ -45,7 +45,10 @@ function Anecdote() {
     <div className="mt-4">
       <h1 className="font-extrabold">Anecdote of the day</h1>
       <h2>
-        {anecdotes[selected]} <span className="text-violet-700">has {points[selected]} votes</span>
+        {anecdotes[selected]}{' '}
+        <span className="text-violet-700 block">
+          has {points[selected]} votes
+        </span>
       </h2>
       <hr className="mb-2" />
       <Button text="vote" onClick={clickVote} />
@@ -56,7 +59,7 @@ function Anecdote() {
         }
       />
 
-      <h1>Anecdote with most votes</h1>
+      <h1 className="text-fuchsia-800 font-bold mt-7">Anecdote with most votes</h1>
     </div>
   );
 }
