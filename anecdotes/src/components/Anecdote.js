@@ -26,15 +26,24 @@ console.log('initialPoints', initialPoints);
 function Anecdote() {
   const [points, setPoints] = useState(initialPoints);
   const [selected, setSelected] = useState(0);
+  const [topVote, setTopVote] = useState({ index: 0, value: 0 });
+
   const clickVote = () => {
     points[selected] += 1;
     setPoints((prevState) => {
       return { ...prevState, [selected]: points[selected] };
     });
+    setTopVote(highestVotes());
     console.log('points', points);
     console.log('pt selected= ', points[selected]);
   };
-  const highestVotes = () => {};
+
+  const highestVotes = () => {
+    let max = Math.max(...Object.values(points));
+    let maxIndex = Object.keys(points).find((key) => points[key] === max);
+    return { index: maxIndex, value: max };
+  };
+
   return (
     <div className="mt-4">
       <h1 className="font-extrabold">Anecdote of the day</h1>
@@ -55,6 +64,8 @@ function Anecdote() {
 
       <h1 className="text-fuchsia-800 font-bold mt-7">
         Anecdote with most votes
+        <div>{anecdotes[topVote.index]}</div>
+        <div>has {topVote.value} votes</div>
       </h1>
     </div>
   );
