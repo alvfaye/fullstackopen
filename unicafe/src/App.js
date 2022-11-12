@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Anecdote from './components/Anecdote';
+import Anecdote from '../../anecdotes/src/components/Anecdote';
 
 const Button = (props) => {
   // console.log('inside Button component...', props.text);
@@ -63,7 +63,6 @@ function App() {
       <Feedback feedback={setFeedback} />
       <h1>statistics</h1>
       <Statistics counter={counter} feedback={setFeedback} />
-      <Anecdote />
     </div>
   );
 }
