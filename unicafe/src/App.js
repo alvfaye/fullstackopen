@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Anecdote from '../../anecdotes/src/components/Anecdote';
 
 const Button = (props) => {
   // console.log('inside Button component...', props.text);
