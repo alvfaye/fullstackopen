@@ -1,11 +1,13 @@
 import { courses } from './data';
-import { Course } from './components'
+import { Course } from './components';
 
 function App() {
-  //console.log(JSON.stringify(courses));
-  return <h1 className="text-yellow-700">
-    <Course course={courses} />
-  </h1>;
+  console.log(JSON.stringify(courses));
+  return (
+    <h1 className="text-yellow-700">
+      <Course courses={courses} />
+    </h1>
+  );
 }
 
 export default App;
