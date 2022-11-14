@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Part(props) {
+function Part({part}) {
   return <div className="font-medium text-sky-900">Part</div>;
 }
 

@@ -1,10 +1,15 @@
 import React from 'react';
 import { Part } from '../components';
 
-function Content() {
+// const Part = ({part}) => {
+//   return <div>part</div>
+// }
+function Content({ parts }) {
   return (
     <div>
-      <Part />
+      {parts.map((part) => (
+        <Part part={part} />
+      ))}
     </div>
   );
 }
