@@ -1,9 +1,6 @@
 import React from 'react';
 import { Part } from '../components';
 
-// const Part = ({part}) => {
-//   return <div>part</div>
-// }
 function Content({ parts }) {
   console.log('parts-->>',parts)
   return (<>
