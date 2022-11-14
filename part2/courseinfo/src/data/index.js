@@ -1,4 +1,4 @@
-const courses = [
+export const courses = [
   {
     name: 'Half Stack application development',
     id: 1,
