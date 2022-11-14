@@ -41,4 +41,25 @@ export const courses = [
       },
     ],
   },
+  {
+    name: 'Ruby on Rails',
+    id: 2,
+    parts: [
+      {
+        name: 'Ruby essentials',
+        exercises: 32,
+        id: 1,
+      },
+      {
+        name: 'Backend',
+        exercises: 7,
+        id: 2,
+      },
+      {
+        name: 'Deployment',
+        exercises: 2,
+        id: 2,
+      },
+    ],
+  },
 ];
