@@ -43,7 +43,7 @@ export const courses = [
   },
   {
     name: 'Ruby on Rails',
-    id: 2,
+    id: 3,
     parts: [
       {
         name: 'Ruby essentials',
@@ -58,7 +58,7 @@ export const courses = [
       {
         name: 'Deployment',
         exercises: 2,
-        id: 2,
+        id: 3,
       },
     ],
   },

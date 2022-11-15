@@ -10,11 +10,10 @@ const Course = ({ course }) => {
   );
 };
 function Courses({ courses }) {
-  console.log('courses', courses[0].name);
   return (
     <div>
-      {courses.map((course, id) => (
-        <Course key={id} course={course} />
+      {courses.map((course) => (
+        <Course key={course.id} course={course} />
       ))}
     </div>
   );

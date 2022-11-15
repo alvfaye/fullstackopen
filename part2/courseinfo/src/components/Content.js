@@ -5,8 +5,8 @@ function Content({ parts }) {
   return (
     <>
       <div className="ml-2 border-2 p-2 rounded-md shadow-lg w-64 border-solid">
-        {parts.map((part, id) => (
-          <Part key={id} part={part} />
+        {parts.map((part) => (
+          <Part key={part.id} part={part} />
         ))}
       </div>
       <div className="ml-2.5 mb-5">
