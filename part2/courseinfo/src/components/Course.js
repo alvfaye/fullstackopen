@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Content } from '../components';
 
-const Course = ({ course }) => {
+const Course = ({course }) => {
   return (
     <div>
       <Header name={course.name} />
@@ -13,8 +13,8 @@ function Courses({ courses }) {
   console.log('courses', courses[0].name);
   return (
     <div>
-      {courses.map((course) => (
-        <Course course={course} />
+      {courses.map((course, id) => (
+        <Course key={id} course={course} />
       ))}
     </div>
   );
