@@ -17,7 +17,7 @@ function App() {
           Enter new note
           <input
             className="from-neutral-900 font-normal"
-            name="note"
+            name="notefield"
             value={note}
             type="text"
             onChange={(e) => setNote(e.target.value)}
