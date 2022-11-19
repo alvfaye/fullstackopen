@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 function App() {
   const [note, setNote] = useState('a new note');
-  const handleSubmit = () => {
-    return <h3>handle submit</h3>;
+  const handleSubmit = (e) => {
+    // return <h3>handle submit</h3>;
+    console.log(e.target.value, e.target.name);
   };
   return (
     <div>
@@ -11,13 +12,16 @@ function App() {
         {note}
       </div>
       <form onSubmit={handleSubmit}>
-        <label for="note" className="text-sky-800 font-extrabold m-4">Enter new note</label>
+        <label for="note" className="text-sky-800 font-extrabold m-4">
+          Enter new note
+        </label>
         <input
           name="note"
           value={note}
           type="text"
           onChange={(e) => setNote(e.target.value)}
         />
+        <button type="submit">submit</button>
       </form>
     </div>
   );
