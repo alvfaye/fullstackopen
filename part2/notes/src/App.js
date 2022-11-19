@@ -16,6 +16,7 @@ function App() {
         <label className="text-sky-800 font-extrabold m-4">
           Enter new note
           <input
+            className="from-neutral-900 font-normal"
             name="note"
             value={note}
             type="text"
