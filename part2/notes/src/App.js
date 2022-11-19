@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 function App() {
   const [note, setNote] = useState('a new note');
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     // return <h3>handle submit</h3>;
     e.preventDefault();
-    console.log(e.target.value);
-  };
+    console.log('hello ',e.target.value);
+  }
   return (
     <div>
       <div className="w-[40%] p-3 font-semibold text-blue-900 border-2 shadow-md border-slate-500">
