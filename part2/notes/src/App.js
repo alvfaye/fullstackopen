@@ -4,7 +4,8 @@ function App() {
   const [note, setNote] = useState('a new note');
   const handleSubmit = (e) => {
     // return <h3>handle submit</h3>;
-    console.log(e.target.value, e.target.name);
+    e.preventDefault();
+    console.log(e.target.value);
   };
   return (
     <div>
