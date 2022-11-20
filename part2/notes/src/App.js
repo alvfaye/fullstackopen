@@ -25,7 +25,6 @@ function App() {
           />
         </label>
         <button
-          type="submit"
           className="rounded-xl outline outline-red-200 shadow-red-400 shadow-2xl px-2 py-1 m-3"
         >
           submit
