@@ -13,7 +13,11 @@ function App() {
       <div className="w-[40%] p-3 font-semibold text-blue-900 border-2 shadow-md border-slate-500">
         {note}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
         <label className="text-sky-800 font-extrabold mt-8 mr-5">
           Enter new note
           <input
@@ -24,11 +28,11 @@ function App() {
             onChange={(e) => setNote(e.target.value)}
           />
         </label>
-        <button
+        <input
+          type="submit"
           className="rounded-xl outline outline-red-200 shadow-red-400 shadow-2xl px-2 py-1 m-3"
-        >
-          submit
-        </button>
+          value="submit"
+        />
       </form>
     </div>
   );
