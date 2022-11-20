@@ -5,7 +5,7 @@ function App() {
   function handleSubmit(e) {
     // return <h3>handle submit</h3>;
     e.preventDefault();
-    console.log('hello ',e.target.value);
+    console.log('hello ', e.target);
   }
   return (
     <div>
@@ -13,10 +13,10 @@ function App() {
         {note}
       </div>
       <form onSubmit={handleSubmit}>
-        <label className="text-sky-800 font-extrabold m-4">
+        <label className="text-sky-800 font-extrabold mt-8 mr-5">
           Enter new note
           <input
-            className="from-neutral-900 font-normal"
+            className="from-neutral-900 font-normal mt-4 ml-4"
             name="notefield"
             value={note}
             type="text"
