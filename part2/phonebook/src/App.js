@@ -10,9 +10,8 @@ const App = () => {
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
   const [filter, setFilter] = useState('');
-  const addNewContact = () => {
-    console.log(newName, newNumber);
-  };
+  const addNewContact = () => console.log(newName, newNumber);
+
   return (
     <div>
       <h2>Phonebook</h2>
