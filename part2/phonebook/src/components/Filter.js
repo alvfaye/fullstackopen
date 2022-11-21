@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 function Filter(props) {
   return (
     <div>
-      Filter
+      <form>
+        <div>
+          <input type="text" name="title" placeholder="Title" />
+        </div>
+        <div>
+          <input type="text" name="text" placeholder="Take a note..." />
+        </div>
+      </form>
     </div>
-  )
+  );
 }
 
-export default Filter
+export default Filter;
