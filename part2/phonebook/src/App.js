@@ -15,7 +15,7 @@ const App = () => {
 
       <Filter filter={filter} />
 
-      <h3>Add a new</h3>
+      <h3>Add a new contact</h3>
 
       <PersonForm />
 
