@@ -15,14 +15,14 @@ const App = () => {
     maxId += 1
     console.log('higher level function', name, number, maxId);
 
-    persons.concat({
+    setPersons(persons.concat([{
       name,
       number,
       id: maxId + 1,
-    });
+    }]));
     setNewName(name);
     setNewNumber(number);
-    console.log(persons)
+    console.log('persons',persons)
   };
 
   return (
@@ -34,8 +34,6 @@ const App = () => {
       <h3>Add a new contact</h3>
 
       <PersonForm
-        // name={newName}
-        // number={newNumber}
         addContact={addNewContact}
       />
 
