@@ -7,39 +7,49 @@ const App = () => {
     { name: 'Dan Abramov', number: '12-43-234345', id: 3 },
     { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 },
   ]);
-  const [newName, setNewName] = useState('');
-  const [newNumber, setNewNumber] = useState('');
+
   const [filter, setFilter] = useState('');
+  const [filteredList, setFilteredList] = useState(persons);
   const addNewContact = (name, number) => {
     let maxId = persons.reduce((a, v) => v.id, 0);
-    maxId += 1
+    maxId += 1;
     console.log('higher level function', name, number, maxId);
+    const newContact = [
+      {
+        name,
+        number,
+        id: maxId + 1,
+      },
+    ];
+    setPersons(
+      persons.concat(newContact)
 
-    setPersons(persons.concat([{
-      name,
-      number,
-      id: maxId + 1,
-    }]));
-    setNewName(name);
-    setNewNumber(number);
-    console.log('persons',persons)
+    );
+
+    setFilteredList(filteredList.concat(newContact))
+    console.log('persons', persons);
+  };
+
+  const filterPersons = (filter) => {
+    console.log('filter', filter);
+    const newList = persons.filter((x) => x.name.toLowerCase().indexOf(filter) != -1)
+    setFilteredList(newList)
+    console.log('newList', newList)
   };
 
   return (
     <div>
       <h2>Phonebook</h2>
 
-      <Filter filter={filter} />
+      <Filter handleFilter={filterPersons} />
 
       <h3>Add a new contact</h3>
 
-      <PersonForm
-        addContact={addNewContact}
-      />
+      <PersonForm addContact={addNewContact} />
 
       <h3>Numbers</h3>
 
-      <Persons persons={persons} />
+      <Persons persons={filteredList} />
     </div>
   );
 };
