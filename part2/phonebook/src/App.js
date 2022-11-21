@@ -8,12 +8,11 @@ const App = () => {
     { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 },
   ]);
 
-  const [filter, setFilter] = useState('');
   const [filteredList, setFilteredList] = useState(persons);
   const addNewContact = (name, number) => {
     let maxId = persons.reduce((a, v) => v.id, 0);
     maxId += 1;
-    console.log('higher level function', name, number, maxId);
+
     const newContact = [
       {
         name,
@@ -21,20 +20,16 @@ const App = () => {
         id: maxId + 1,
       },
     ];
-    setPersons(
-      persons.concat(newContact)
+    setPersons(persons.concat(newContact));
 
-    );
-
-    setFilteredList(filteredList.concat(newContact))
-    console.log('persons', persons);
+    setFilteredList(filteredList.concat(newContact));
   };
 
   const filterPersons = (filter) => {
-    console.log('filter', filter);
-    const newList = persons.filter((x) => x.name.toLowerCase().indexOf(filter) != -1)
-    setFilteredList(newList)
-    console.log('newList', newList)
+    const newList = persons.filter(
+      (x) => x.name.toLowerCase().indexOf(filter) != -1
+    );
+    setFilteredList(newList);
   };
 
   return (

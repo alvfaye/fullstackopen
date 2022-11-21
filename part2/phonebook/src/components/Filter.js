@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 const boxStyle = 'm-6 border shadow-md rounded-md w-[50%] px-4 rounded-md leading-10';
 function Filter({ handleFilter }) {
   //const [filter, setFilter] = useState('')
