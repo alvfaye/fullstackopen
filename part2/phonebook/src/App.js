@@ -10,7 +10,20 @@ const App = () => {
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
   const [filter, setFilter] = useState('');
-  const addNewContact = () => console.log(newName, newNumber);
+  const addNewContact = (name, number) => {
+    let maxId = persons.reduce((a, v) => v.id, 0);
+    maxId += 1
+    console.log('higher level function', name, number, maxId);
+
+    persons.concat({
+      name,
+      number,
+      id: maxId + 1,
+    });
+    setNewName(name);
+    setNewNumber(number);
+    console.log(persons)
+  };
 
   return (
     <div>
@@ -21,8 +34,8 @@ const App = () => {
       <h3>Add a new contact</h3>
 
       <PersonForm
-        name={newName}
-        number={newNumber}
+        // name={newName}
+        // number={newNumber}
         addContact={addNewContact}
       />
 
