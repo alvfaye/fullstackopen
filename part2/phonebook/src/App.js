@@ -40,7 +40,7 @@ const App = () => {
 
       <h3>Add a new contact</h3>
 
-      <PersonForm addContact={addNewContact} />
+      <PersonForm persons={persons} addContact={addNewContact} />
 
       <h3>Numbers</h3>
 

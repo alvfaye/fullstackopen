@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 const boxStyle = 'm-6 border shadow-md rounded-md w-[50%] p-4 leading-10';
 
-function PersonForm({ addContact }) {
+function PersonForm({ persons, addContact }) {
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
-
+  const validateName = (e) => {
+    const name = e.target.value
+    console.log('name entered ', name, persons)
+    if (persons.filter((e) => e.name === name).length > 0)
+      alert('record found!')
+   setNewName(name)
+}
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -16,7 +22,7 @@ function PersonForm({ addContact }) {
               name="name"
               value={newName}
               placeholder="Name"
-              onChange={(e) => setNewName(e.target.value)}
+              onChange={validateName}
             />
           </div>
           <div>
