@@ -17,9 +17,10 @@ const App = () => {
       {
         name,
         number,
-        id: maxId + 1,
+        id: maxId,
       },
     ];
+    console.log(newContact);
     setPersons(persons.concat(newContact));
 
     setFilteredList(filteredList.concat(newContact));

@@ -4,13 +4,16 @@ const boxStyle = 'm-6 border shadow-md rounded-md w-[50%] p-4 leading-10';
 function PersonForm({ persons, addContact }) {
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
+
   const validateName = (e) => {
-    const name = e.target.value
-    console.log('name entered ', name, persons)
-    if (persons.filter((e) => e.name === name).length > 0)
-      alert('record found!')
-   setNewName(name)
-}
+    const name = e.target.value;
+    setNewName(name);
+    console.log('name entered ', name, persons);
+    const found = persons.find(
+      (e) => e.name === newName && e.number === newNumber
+    );
+    console.log('found', found);
+  };
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
