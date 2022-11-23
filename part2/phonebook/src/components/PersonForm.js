@@ -9,9 +9,7 @@ function PersonForm({ persons, addContact }) {
     const name = e.target.value;
     setNewName(name);
     console.log('name entered ', name, persons);
-    const found = persons.find(
-      (e) => e.name === newName && e.number === newNumber
-    );
+    const found = persons.find((e) => e.name === name);
     console.log('found', found);
   };
   return (
