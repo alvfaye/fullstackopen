@@ -20,15 +20,15 @@ const App = () => {
         id: maxId,
       },
     ];
-    console.log(newContact);
-    setPersons(persons.concat(newContact));
-
-    setFilteredList(filteredList.concat(newContact));
+    if (name !== '') {
+      setPersons(persons.concat(newContact));
+      setFilteredList(filteredList.concat(newContact));
+    }
   };
 
   const filterPersons = (filter) => {
     const newList = persons.filter(
-      (x) => x.name.toLowerCase().indexOf(filter) != -1
+      (x) => x.name.toLowerCase().indexOf(filter) !== -1
     );
     setFilteredList(newList);
   };
