@@ -20,7 +20,7 @@ const App = () => {
         id: maxId,
       },
     ];
-    if (name !== '') {
+    if (name !== '' && number !== '') {
       setPersons(persons.concat(newContact));
       setFilteredList(filteredList.concat(newContact));
     }

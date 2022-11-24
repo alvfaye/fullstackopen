@@ -7,17 +7,18 @@ function PersonForm({ persons, addContact }) {
 
   const validateName = (e) => {
     const name = e.target.value;
-    
+
     console.log('name entered ', name, persons);
     const found = persons.find((e) => e.name === name);
     if (found) {
-      alert(`${name} is already added to phonebook`)
-      setNewName('')
-      return
-    }
-    else
-      setNewName(name);
-      
+      alert(`${name} is already added to phonebook`);
+      setNewName('');
+    } else setNewName(name);
+  };
+  const validateNumber = (e) => {
+    const number = e.target.value;
+    if (number === '') alert('number can`t be null');
+    else setNewNumber(number);
   };
 
   const addNewContact = () => {
@@ -46,7 +47,7 @@ function PersonForm({ persons, addContact }) {
               name="number"
               value={newNumber}
               placeholder="#99999-9999"
-              onChange={(e) => setNewNumber(e.target.value)}
+              onChange={validateNumber}
             />
           </div>
           <button
