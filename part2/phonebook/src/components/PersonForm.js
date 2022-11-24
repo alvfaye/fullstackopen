@@ -17,7 +17,8 @@ function PersonForm({ persons, addContact }) {
   };
   const validateNumber = (e) => {
     const number = e.target.value;
-    if (number === '') alert('number can`t be null');
+    console.log('number',number)
+    if (number === '') alert(`number can't be null`);
     else setNewNumber(number);
   };
 
