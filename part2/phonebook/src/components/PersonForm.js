@@ -17,9 +17,12 @@ function PersonForm({ persons, addContact }) {
   };
   const validateNumber = (e) => {
     const number = e.target.value;
-    console.log('number',number)
-    if (number === '') alert(`number can't be null`);
-    else setNewNumber(number);
+    setNewNumber(number);
+    console.log('number', parseInt(number));
+    if (Number.isNaN(parseInt(number))) {
+      alert(`you entered an invalid number!`);
+      return;
+    }
   };
 
   const addNewContact = () => {
@@ -47,7 +50,7 @@ function PersonForm({ persons, addContact }) {
               type="text"
               name="number"
               value={newNumber}
-              placeholder="#99999-9999"
+              placeholder="999999999"
               onChange={validateNumber}
             />
           </div>
