@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 function Search() {
   return (
     <div>
-      <h1>find countries</h1>
+      <div className="text-4xl font-serif text-amber-800">find countries</div>
     </div>
-  )
+  );
 }
 
-export default Search
+export default Search;
