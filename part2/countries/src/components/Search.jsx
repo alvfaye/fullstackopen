@@ -9,7 +9,11 @@ function Search() {
   // setName('south sudan');
   useEffect(() => {
     axios
-      .get(`https://restcountries.com/v3.1/name/${name}`)
+      .get(`https://restcountries.com/v3.1/name/${name}`, {
+        params: {
+          per_page: 10,
+        },
+      })
       .then((response) => {
         //console.log(response.data);
         const data = response.data;
