@@ -8,28 +8,35 @@ function Search() {
   const [tmpName, settmpName] = useState('');
   // setName('south sudan');
   useEffect(() => {
-    axios
-      .get(`https://restcountries.com/v3.1/name/${name}`, {
-        params: {
-          per_page: 10,
-        },
-      })
+    const fetchData = async () => {
+      const data = await axios.get(
+        `https://restcountries.com/v3.1/name/${name}`
+      );
+      console.log('inside fetchdata', data);
+      return data;
+    };
+    // axios
+    //   .get(`https://restcountries.com/v3.1/name/${name}`, {
+    //     params: {
+    //       per_page: 10,
+    //     },
+    //   })
+    fetchData()
       .then((response) => {
-        //console.log(response.data);
-        const data = response.data;
-        setCountries(data);
-        console.log(name.common, countries);
-      });
+        console.log('inside response', name, response.data);
+        setCountries(response.data);
+      })
+      .catch(console.error);
   }, [name]);
 
-  const Country = ({ name }) => {
+  const Country = ({ country }) => {
     return (
       <div>
-        {name.common}
+        {country.name.common}
         <button
           type="button"
           onClick={(e) => {
-            console.log(name.common);
+            console.log('country', country);
           }}
         >
           Show
@@ -47,14 +54,14 @@ function Search() {
             className="border-blue-500 border-2 shadow-lg mt-3 mb-5 text-2xl"
             id="name"
             type="text"
-            value={tmpName}
-            onChange={(e) => settmpName(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
-          <button onClick={(e) => setName(tmpName)}>submit</button>
+          {/* <button onClick={(e) => setName(tmpName)}>submit</button> */}
         </label>
         <h1>Countries</h1>
-        {countries.map((country) => (
-          <Country country={country} />
+        {countries.map((country, index) => (
+          <Country key={index} country={country} />
         ))}
       </div>
     </div>
