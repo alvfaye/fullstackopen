@@ -30,6 +30,15 @@ function Search() {
   }, [name]);
 
   const Country = ({ country }) => {
+    const modal = (visible) => {
+      return (
+      <div className=`fixed inset-0 ${visible} bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full`
+        id="my-modal"
+      >
+        hey there
+      </div>
+   )};
+
     return (
       <div>
         {country.name.common}
@@ -47,13 +56,7 @@ function Search() {
         </button>
 
         {/* Modal */}
-{/* <!--Overlay Effect--> */}
-<div
-	className="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
-	id="my-modal"
-></div>
-       </div> 
-
+      </div>
     );
   };
 
