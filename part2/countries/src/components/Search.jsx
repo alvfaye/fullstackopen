@@ -34,10 +34,12 @@ function Search() {
       <div>
         {country.name.common}
         <button
+          className="border-2 border-green-300 text-xl px-2 py-1 mx-3 bg-green-200 rounded-2xl shadow-lg"
           type="button"
           onClick={(e) => {
             console.log('country', country);
           }}
+          
         >
           Show
         </button>
