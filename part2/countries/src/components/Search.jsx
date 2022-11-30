@@ -21,7 +21,7 @@ function Search() {
       .catch(console.error);
   }, [name]);
 
-  const iModal = ({ country }) => {
+  const Modal2 = ({ country }) => {
     const languages = Object.values(country.languages);
     console.log('inside iModal', languages[0]);
     return (
@@ -49,7 +49,7 @@ function Search() {
         <button
           className="border-2 border-green-200 text-xl px-2 py-1 mx-3 bg-green-200 rounded-2xl shadow-lg"
           type="button"
-          onClick={() => <iModal country={country} />}
+          onClick={() => <Modal2 country={country} />}
         >
           Show
         </button>
