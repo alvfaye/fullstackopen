@@ -23,7 +23,7 @@ function Search() {
 
   const iModal = ({ country }) => {
     const languages = Object.values(country.languages);
-
+    console.log('inside iModal', languages[0]);
     return (
       <div
         className="fixed inset-0 bg-gray-300 bg-opacity-50 overflow-y-auto h-full w-full"
