@@ -43,15 +43,6 @@ function Search() {
     );
   };
   const Country = ({ country }) => {
-    //const modal = () => {
-    //console.log(
-    // 'INSIDE MODAL ',
-    // country.name.common,
-    //country.capital[0],
-    //country.area
-    //);
-    // };
-
     return (
       <div>
         {country.name.common}
