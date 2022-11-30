@@ -30,14 +30,32 @@ function Search() {
   }, [name]);
 
   const Country = ({ country }) => {
-    const modal = (visible) => {
+    const modal = () => {
+      const languages = Object.values(country.languages);
+      console.log(
+        'INSIDE MODAL ',
+        country.name.common,
+        country.capital[0],
+        country.area
+      );
       return (
-      <div className=`fixed inset-0 ${visible} bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full`
-        id="my-modal"
-      >
-        hey there
-      </div>
-   )};
+        <div
+          className="fixed inset-0 bg-gray-300 bg-opacity-50 overflow-y-auto h-full w-full"
+          id="my-modal"
+        >
+          <h3>name</h3>
+          <h2>{country.name.common}</h2>
+          <h3>capital</h3>
+          <h2>{country.capital[0]}</h2>
+          <h3>area</h3>
+          <h2>{country.area}</h2>
+          <h3>languages</h3>
+          {languages.map((language, id) => (
+            <h2 id={id}>{language}</h2>
+          ))}
+        </div>
+      );
+    };
 
     return (
       <div>
@@ -48,9 +66,9 @@ function Search() {
           // onClick={(e) => {
           //   console.log('country', country);
           // }}
-          onClick={() => Modal(country)}
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          onClick={modal}
+          // data-bs-toggle="modal"
+          // data-bs-target="#exampleModal"
         >
           Show
         </button>
@@ -62,12 +80,6 @@ function Search() {
 
   function Modal(country) {
     console.log('inside modal---country');
-    console.log('name', country.name.common);
-    console.log('capital', country.capital[0]);
-    console.log('area', country.area);
-    const languages = Object.values(country.languages);
-    console.log('languages', languages);
-    languages.map((language) => console.log(language));
     return (
       <div
         className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
