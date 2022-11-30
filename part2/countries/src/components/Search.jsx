@@ -49,7 +49,7 @@ function Search() {
         <button
           className="border-2 border-green-200 text-xl px-2 py-1 mx-3 bg-green-200 rounded-2xl shadow-lg"
           type="button"
-          onClick={() => <Modal2 country={country} />}
+          onClick={() => <Modal country={country} />}
         >
           Show
         </button>
@@ -57,7 +57,7 @@ function Search() {
     );
   };
 
-  function Modal(country) {
+  function Modal({ country }) {
     console.log('inside modal---country');
     return (
       <div
