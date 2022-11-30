@@ -51,7 +51,7 @@ function Search() {
           <h2>{country.area}</h2>
           <h3>languages</h3>
           {languages.map((language, id) => (
-            <h2 id={id}>{language}</h2>
+            <h2 key={id}>{language}</h2>
           ))}
         </div>
       );
