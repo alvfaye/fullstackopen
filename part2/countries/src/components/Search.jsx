@@ -21,33 +21,36 @@ function Search() {
       .catch(console.error);
   }, [name]);
 
+  const Modal = ({ country }) => {
+    const languages = Object.values(country.languages);
+
+    return (
+      <div
+        className="fixed inset-0 bg-gray-300 bg-opacity-50 overflow-y-auto h-full w-full"
+        id="my-modal"
+      >
+        <h3>name</h3>
+        <h2>{country.name.common}</h2>
+        <h3>capital</h3>
+        <h2>{country.capital[0]}</h2>
+        <h3>area</h3>
+        <h2>{country.area}</h2>
+        <h3>languages</h3>
+        {languages.map((language, id) => (
+          <h2 key={id}>{language}</h2>
+        ))}
+      </div>
+    );
+  };
   const Country = ({ country }) => {
-    const modal = () => {
-      const languages = Object.values(country.languages);
-      console.log(
-        'INSIDE MODAL ',
-        country.name.common,
-        country.capital[0],
-        country.area
-      );
-      return (
-        <div
-          className="fixed inset-0 bg-gray-300 bg-opacity-50 overflow-y-auto h-full w-full"
-          id="my-modal"
-        >
-          <h3>name</h3>
-          <h2>{country.name.common}</h2>
-          <h3>capital</h3>
-          <h2>{country.capital[0]}</h2>
-          <h3>area</h3>
-          <h2>{country.area}</h2>
-          <h3>languages</h3>
-          {languages.map((language, id) => (
-            <h2 key={id}>{language}</h2>
-          ))}
-        </div>
-      );
-    };
+    //const modal = () => {
+    //console.log(
+    // 'INSIDE MODAL ',
+    // country.name.common,
+    //country.capital[0],
+    //country.area
+    //);
+    // };
 
     return (
       <div>
@@ -55,12 +58,10 @@ function Search() {
         <button
           className="border-2 border-green-200 text-xl px-2 py-1 mx-3 bg-green-200 rounded-2xl shadow-lg"
           type="button"
-          onClick={modal}
+          onClick={<Modal country={country} />}
         >
           Show
         </button>
-
-       
       </div>
     );
   };
