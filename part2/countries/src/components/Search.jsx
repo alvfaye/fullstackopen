@@ -21,7 +21,7 @@ function Search() {
       .catch(console.error);
   }, [name]);
 
-  const Modal2 = ({ country }) => {
+  const Details = ({ country }) => {
     const languages = Object.values(country.languages);
     console.log('inside iModal', languages[0]);
     return (
@@ -29,16 +29,14 @@ function Search() {
         className="fixed inset-0 bg-gray-300 bg-opacity-50 overflow-y-auto h-full w-full"
         id="my-modal"
       >
-        <h3>name</h3>
-        <h2>{country.name.common}</h2>
-        <h3>capital</h3>
-        <h2>{country.capital[0]}</h2>
-        <h3>area</h3>
-        <h2>{country.area}</h2>
-        <h3>languages</h3>
+        <h1>{country.name.common}</h1>
+        <h2>capital {country.capital[0]}</h2>
+        <h2>area {country.area}</h2>
+        <h3>languages:</h3>
         {languages.map((language, id) => (
           <h2 key={id}>{language}</h2>
         ))}
+        //flag
       </div>
     );
   };
@@ -53,6 +51,7 @@ function Search() {
         >
           Show
         </button>
+        <Details country={country} />
       </div>
     );
   };
