@@ -24,7 +24,7 @@ function Search() {
 
   const Details = ({ country }) => {
     const languages = Object.values(country.languages);
-    console.log('inside iModal', languages[0]);
+    //console.log('inside iModal', languages[0]);
     return (
       <div
         className="fixed inset-0 bg-gray-300 bg-opacity-50 overflow-y-auto h-full w-full"
@@ -34,6 +34,7 @@ function Search() {
         <h2>capital {country.capital[0]}</h2>
         <h2>area {country.area}</h2>
         <h3>languages:</h3>
+        {/* languages  */}
         {languages.map((language, id) => (
           <h2 key={id}>{language}</h2>
         ))}
