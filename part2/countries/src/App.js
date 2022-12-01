@@ -1,9 +1,6 @@
 import Search from './components/Search';
 import { useState } from 'react';
 
-function App() {
-  const [countries, setCountries] = useState([]);
-  return <Search />;
-}
+const App = () => <Search />
 
 export default App;

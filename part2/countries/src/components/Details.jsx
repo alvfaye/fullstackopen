@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Details({ country }) {
-  const languages = Object.values(country.languages);
+  let languages = Object.values(country.languages);
   return (
     <div
       //className="fixed inset-0 bg-gray-300 bg-opacity-50 overflow-y-auto h-full w-full"
