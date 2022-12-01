@@ -20,7 +20,7 @@ function Search() {
         setCountries(response.data);
       })
       .catch(console.error);
-  }, []);
+  }, [name]);
 
   const Details = ({ country }) => {
     const languages = Object.values(country.languages);
@@ -52,7 +52,6 @@ function Search() {
         >
           Show
         </button>
-        
       </div>
     );
   };
@@ -153,8 +152,7 @@ function Search() {
         {countries.map((country, index) => (
           <Country key={index} country={country} />
         ))}
-
-        <Details details={selectedCountry} />
+        selectedCountry && <Details country={selectedCountry} />
       </div>
     </div>
   );
