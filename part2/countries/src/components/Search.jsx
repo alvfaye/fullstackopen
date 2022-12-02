@@ -39,7 +39,7 @@ function Search() {
     fetchData()
       .then((response) => {
         console.log('inside response', name, response.data);
-        setCountries(response.data);
+        setCountries(response.data.slice(0, 5));
       })
       .catch(console.error);
   }, [name]);
