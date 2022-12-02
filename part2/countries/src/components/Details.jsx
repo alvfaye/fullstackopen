@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Details({ country }) {
+function Details({ country = { languages: { "lang": '' }} }) {
   let languages = Object.values(country.languages);
   return (
     <div
