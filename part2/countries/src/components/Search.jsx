@@ -83,7 +83,7 @@ function Search() {
         )}
         {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
         {<Details country={selectedCountry} />}
-        <Weather city={selectedCountry.capital[0]} />
+        
       </div>
     </div>
   );

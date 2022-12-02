@@ -1,4 +1,5 @@
 import React from 'react';
+import Weather from './Weather';
 
 function Details({ country }) {
   //let languages = ['Arabic', 'English'];
@@ -21,6 +22,8 @@ function Details({ country }) {
         ))}
         {/* display flag */}
         <img src={country.flags.svg} />
+
+        <Weather city={country.capital[0]} />
       </div>
     )
   );
