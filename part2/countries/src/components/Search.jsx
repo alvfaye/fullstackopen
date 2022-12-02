@@ -55,7 +55,12 @@ function Search() {
         {countries.map((country, index) => (
           <Country key={index} country={country} />
         ))}
-        selectedCountry && <Details country={selectedCountry} />
+        {console.log(
+          'selectedCountry exist',
+          Object.keys(selectedCountry).length
+        )}
+        {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
+        {<Details country={selectedCountry} />}
       </div>
     </div>
   );
