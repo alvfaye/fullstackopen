@@ -1,10 +1,9 @@
 import React from 'react';
 
 function Details({ country }) {
-
-  let languages = ['Arabic', 'English'];
-  // let languages = Object.values(country?.languages);
-    console.log('languages', languages);
+  //let languages = ['Arabic', 'English'];
+  let languages = Object.values(country?.languages);
+  console.log('languages', languages);
   return (
     Object.keys(country).length && (
       <div
@@ -17,12 +16,9 @@ function Details({ country }) {
         <h2>area {country.area}</h2>
         {/* list languages */}
         <h3>languages:</h3>
-        {
-          
-          languages.map((language, id) => (
+        {languages.map((language, id) => (
           <h2 key={id}>{language}</h2>
-          ))
-        }
+        ))}
         {/* display flag */}
         <img src={country.flags.svg} />
       </div>

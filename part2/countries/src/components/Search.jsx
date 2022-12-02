@@ -1,12 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Details from './Details';
+const defaultCountry = {
+  name: {
+    common: 'Philippines',
+    official: 'Republic of the Philippines',
+  },
+  capital: ['Manila'],
+  languages: {
+    eng: 'English',
+    fil: 'Filipino',
+  },
+  area: 342353,
+  flags: {
+    png: 'https://flagcdn.com/w320/ph.png',
+    svg: 'https://flagcdn.com/ph.svg',
+  },
+  maps: {
+    googleMaps: 'https://goo.gl/maps/k8T2fb5VMUfsWFX6A',
+    openStreetMaps: 'https://www.openstreetmap.org/relation/443174',
+  },
+  timezones: ['UTC+08:00'],
+};
 
 function Search() {
-  const [name, setName] = useState('sudan');
+  const [name, setName] = useState('Philippines');
   const [countries, setCountries] = useState([]);
   const [tmpName, settmpName] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(defaultCountry);
   useEffect(() => {
     const fetchData = async () => {
       const data = await axios.get(
