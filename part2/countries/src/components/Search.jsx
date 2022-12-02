@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Details from './Details';
+import Weather from './Weather';
 const defaultCountry = {
   name: {
     common: 'Philippines',
@@ -82,6 +83,7 @@ function Search() {
         )}
         {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
         {<Details country={selectedCountry} />}
+        <Weather city={selectedCountry.capital[0]} />
       </div>
     </div>
   );
