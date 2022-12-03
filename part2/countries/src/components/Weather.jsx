@@ -16,14 +16,14 @@ async function fetchData(city, setWeatherData) {
 function Weather({ city }) {
   //const [weatherData, setWeatherData] = useState({});
   // const city = 'Manila,PH';
-  const { weather } = fetchData(city);
+  const data = fetchData(city);
   //setWeatherData(base);
   //.then((response) => {
   //setWeatherData(response .data);
-  console.log('WEATHER DATA', weather);
+  console.log('WEATHER DATA', data);
   //});
 
-  return <div>{weather && weather.description}</div>;
+  return <div>{data.weather[0].description}</div>;
 }
 
 export default Weather;
