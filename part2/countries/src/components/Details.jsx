@@ -12,18 +12,17 @@ function Details({ country }) {
         id="my-modal"
       >
         {/* main details */}
-        <h1>{country.name.common}</h1>
-        <h2>capital {country.capital[0]}</h2>
-        <h2>area {country.area}</h2>
+        <h5>{country.name.common}</h5>
+        <h6>capital {country.capital[0]}</h6>
+        <h6>area {country.area}</h6>
         {/* list languages */}
-        <h3>languages:</h3>
+        <h6>languages:</h6>
         {languages.map((language, id) => (
-          <h2 key={id}>{language}</h2>
+          <h6 key={id}>{language}</h6>
         ))}
         {/* display flag */}
-        <img src={country.flags.svg} />
-
-              </div>
+        <img className="w-20 h-20" src={country.flags.svg} />
+      </div>
     )
   );
 }

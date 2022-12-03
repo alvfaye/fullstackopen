@@ -63,7 +63,7 @@ function Search() {
 
   return (
     <div>
-      <div className="text-4xl font-serif text-amber-800">
+      <div className="text-xl font-serif text-amber-800">
         <label>
           find countries
           <input
@@ -84,6 +84,7 @@ function Search() {
         )}
         {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
         <Details country={selectedCountry} />
+   <h3>Weather</h3>
         <Weather city={selectedCountry.capital[0]} />
       </div>
     </div>

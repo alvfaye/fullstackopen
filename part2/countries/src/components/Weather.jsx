@@ -9,7 +9,7 @@ async function fetchData(city, setWeatherData) {
   console.log('api url', url);
   const { data } = await axios.get(url);
   console.log('data assigned to setWeatherDAta', JSON.stringify(data));
-
+  
   return data;
 }
 
@@ -19,8 +19,8 @@ function Weather({ city }) {
     desc = response.weather[0].description;
     desc += ' temp ' + response.main.temp;
     console.log('desc', desc);
+    return <div>hey {desc}</div>;
   });
-  return <div>{desc}</div>;
 }
 
 export default Weather;
