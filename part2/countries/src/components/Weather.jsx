@@ -14,8 +14,6 @@ async function fetchData(city, setWeatherData) {
 }
 
 function Weather({ city }) {
-  // const [weatherData, setWeatherData] = useState({});
-  // const city = 'Manila,PH';
   let desc = '';
   fetchData(city).then((response) => {
     desc = response.weather[0].description;
@@ -23,11 +21,6 @@ function Weather({ city }) {
     console.log('desc', desc);
   });
   return <div>{desc}</div>;
-  //setWeatherData(base);
-  //.then((response) => {
-  //setWeatherData(response .data);
-  // console.log('WEATHER DATA', weatherData);
-  //});
 }
 
 export default Weather;
