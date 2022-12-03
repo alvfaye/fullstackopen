@@ -23,8 +23,7 @@ function Details({ country }) {
         {/* display flag */}
         <img src={country.flags.svg} />
 
-        <Weather city={country.capital[0]} />
-      </div>
+              </div>
     )
   );
 }
