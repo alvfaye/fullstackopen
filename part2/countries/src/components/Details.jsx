@@ -9,7 +9,7 @@ function Details({ country }) {
     Object.keys(country).length && (
       <div
         //className="fixed inset-0 bg-gray-300 bg-opacity-50 overflow-y-auto h-full w-full"
-        className="border-1 border-l-fuchsia-800 shadow-2xl outline-slate-800 bg-lime-50 my-8 w-fit p-5"
+        className="mx-6 border-l-fuchsia-800 shadow-2xl outline-slate-800 bg-lime-50 my-8 w-fit p-5"
         id="my-modal"
       >
         {/* main details */}
