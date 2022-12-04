@@ -16,9 +16,10 @@ function Weather({ city }) {
   let desc = '';
   fetchData(city).then((response) => {
     desc = response.weather[0].description;
-    desc += ' temp ' + response.main.temp;
+    desc += '\n temperature ' + response.main.temp;
+    desc += '\n wind ' + response.wind.gust + ' m/s';
     console.log('desc', desc);
-    return <div>hey {desc}</div>;
+    return <div>hey{desc}</div>;
   });
 }
 
