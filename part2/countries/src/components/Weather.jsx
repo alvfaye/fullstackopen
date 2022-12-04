@@ -23,7 +23,7 @@ const Weather = ({ city }) => {
       <>
         <h3>hey</h3>
         <div>{desc}</div>
-        console.error(desc)
+        {/* console.error(desc) */}
       </>
     );
   });
