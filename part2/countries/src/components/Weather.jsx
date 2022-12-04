@@ -16,29 +16,26 @@ const Test = (city, setWeatherData) => {
     .then((response) => {
       // console.log('inside response', name, response.data);
       // setCountries(response.data.slice(0, 5));
-      let desc = ''
-         desc = response.weather[0].description;
-         desc += '\n temperature ' + response.main.temp;
+      let desc = '';
+      desc = response.weather[0].description;
+      desc += '\n temperature ' + response.main.temp;
       desc += '\n wind ' + response.wind.gust + ' m/s';
-      setWeatherData(desc)
-         console.log('desc', desc);
+      setWeatherData(desc);
+      console.log('desc', desc);
     })
     .catch(console.error);
 };
 
 const Weather = ({ city }) => {
-   const [weather, setWeatherData] =  useState('')
-  Test(city, setWeatherData)
-  
-    return (
-      <>
-        <h3>hey</h3>
-        <div>{weather}</div>
-        
-        {/* console.error(desc) */}
-      </>
-    );
-  });
+  const [weather, setWeatherData] = useState('');
+  Test(city, setWeatherData);
+
+  return (
+    <>
+      <h3>hey</h3>
+      <div>{weather}</div>
+    </>
+  );
 };
 
 export default Weather;
