@@ -12,7 +12,7 @@ async function fetchData(city, setWeatherData) {
   return data;
 }
 
-function Weather({ city }) {
+const Weather = ({ city }) => {
   let desc = '';
   fetchData(city).then((response) => {
     desc = response.weather[0].description;
@@ -27,6 +27,6 @@ function Weather({ city }) {
       </>
     );
   });
-}
+};
 
 export default Weather;
