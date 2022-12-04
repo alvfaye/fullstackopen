@@ -19,7 +19,13 @@ function Weather({ city }) {
     desc += '\n temperature ' + response.main.temp;
     desc += '\n wind ' + response.wind.gust + ' m/s';
     console.log('desc', desc);
-    return <div>hey{desc}</div>;
+    return (
+      <>
+        <h3>hey</h3>
+        <div>{desc}</div>
+        console.error(desc)
+      </>
+    );
   });
 }
 
