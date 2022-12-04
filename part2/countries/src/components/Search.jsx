@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Details from './Details';
 import Weather from './Weather';
+import Test from './Test';
 
 const defaultCountry = {
   name: {
@@ -84,8 +85,9 @@ function Search() {
         )}
         {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
         <Details country={selectedCountry} />
-        <h3>Weather in { selectedCountry.capital[0] }</h3>
+        <h3>Weather in {selectedCountry.capital[0]}</h3>
         <Weather city={selectedCountry.capital[0]} />
+        <Test />
       </div>
     </div>
   );
