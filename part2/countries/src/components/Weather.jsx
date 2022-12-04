@@ -7,6 +7,7 @@ const Test = (city, setWeatherData) => {
   const fetchData = async (city) => {
     console.log('APIkey', APIkey);
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`;
+
     console.log('api url', url);
     const { data } = await axios.get(url);
     console.log('data assigned to setWeatherDAta', JSON.stringify(data));
@@ -14,14 +15,22 @@ const Test = (city, setWeatherData) => {
   };
   fetchData(city)
     .then((response) => {
-      // console.log('inside response', name, response.data);
-      // setCountries(response.data.slice(0, 5));
-      let desc = '';
-      desc = response.weather[0].description;
-      desc += '\n temperature ' + response.main.temp;
-      desc += '\n wind ' + response.wind.gust + ' m/s';
+      console.log('inside response', city, JSON.stringify(response));
+      const { weather, main, wind } = response;
+      const weatherObj = {
+        desc: weather[0].description,
+        icon: weather[0].icon,
+        temp: main.temp,
+        wind: wind.deg,
+      };
+      let desc = `
+      ${weather[0].description} \n
+      temperature ${main.temp} \n
+      wind ${wind.deg} m/s \n
+      `;
+
       setWeatherData(desc);
-      console.log('desc', desc);
+      console.log('desc', desc, JSON.stringify(weatherObj));
     })
     .catch(console.error);
 };
@@ -32,7 +41,6 @@ const Weather = ({ city }) => {
 
   return (
     <>
-      <h3>hey</h3>
       <div>{weather}</div>
     </>
   );

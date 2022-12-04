@@ -34,9 +34,15 @@ function Search() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await axios.get(
-        `https://restcountries.com/v3.1/name/${name}`
+        //`https://restcountries.com/v3.1/name/${name}`
+        `http://localhost:3001/data`
       );
-      console.log('inside fetchdata', data);
+      //  data = data.filter((item, index) => {
+      //     if (item.common.toLowerCase().includes(name.toLocaleLowerCase()))
+      //       return true;
+      //     else return false;
+      //   });
+      console.log('inside fetchdata', data[0]);
       return data;
     };
     fetchData()
@@ -86,8 +92,7 @@ function Search() {
         {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
         <Details country={selectedCountry} />
         <h3>Weather in {selectedCountry.capital[0]}</h3>
-        <Weather city={selectedCountry.capital[0]} />
-        <Test />
+        {/* <Weather city={selectedCountry.capital[0]} /> */}
       </div>
     </div>
   );
