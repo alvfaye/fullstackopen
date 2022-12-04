@@ -27,28 +27,25 @@ const defaultCountry = {
 };
 
 function Search() {
-  const [name, setName] = useState('Philippines');
+  const [name, setName] = useState('');
   const [countries, setCountries] = useState([]);
   const [tmpName, settmpName] = useState('');
   const [selectedCountry, setSelectedCountry] = useState(defaultCountry);
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axios.get(
-        //`https://restcountries.com/v3.1/name/${name}`
-        `http://localhost:3001/data`
-      );
-      //  data = data.filter((item, index) => {
-      //     if (item.common.toLowerCase().includes(name.toLocaleLowerCase()))
-      //       return true;
-      //     else return false;
-      //   });
-      console.log('inside fetchdata', data[0]);
-      return data;
+      const { data } = await axios.get('http://localhost:3001/data');
+      //`https://restcountries.com/v3.1/name/${name}`
+      const newdata = data.filter((item) => {
+        return item.name.common.toLowerCase().includes(name.toLocaleLowerCase());
+      });
+      console.log('inside fetchdata', newdata[0]);
+      return newdata;
     };
     fetchData()
       .then((response) => {
-        console.log('inside response', name, response.data);
-        setCountries(response.data.slice(0, 5));
+        //console.log('inside response', name, response.data);
+        //setCountries(response.data.slice(0, 3));
+        setCountries(response.slice(-5));
       })
       .catch(console.error);
   }, [name]);
@@ -85,10 +82,10 @@ function Search() {
         {countries.map((country, index) => (
           <Country key={index} country={country} />
         ))}
-        {console.log(
+        {/* {console.log(
           'selectedCountry exist',
           Object.keys(selectedCountry).length
-        )}
+        )} */}
         {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
         <Details country={selectedCountry} />
         <h3>Weather in {selectedCountry.capital[0]}</h3>
