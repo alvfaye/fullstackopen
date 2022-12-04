@@ -33,10 +33,12 @@ function Search() {
   const [selectedCountry, setSelectedCountry] = useState(defaultCountry);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get('http://localhost:3001/data');
+      const { data } = await axios.get('http://localhost:3001/countries');
       //`https://restcountries.com/v3.1/name/${name}`
       const newdata = data.filter((item) => {
-        return item.name.common.toLowerCase().includes(name.toLocaleLowerCase());
+        return item.name.common
+          .toLowerCase()
+          .includes(name.toLocaleLowerCase());
       });
       console.log('inside fetchdata', newdata[0]);
       return newdata;
