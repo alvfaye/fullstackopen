@@ -1,4 +1,3 @@
-// require('dotenv').config();
 import axios from 'axios';
 import React, { useState } from 'react';
 const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553';
@@ -9,7 +8,7 @@ async function fetchData(city, setWeatherData) {
   console.log('api url', url);
   const { data } = await axios.get(url);
   console.log('data assigned to setWeatherDAta', JSON.stringify(data));
-  
+
   return data;
 }
 
