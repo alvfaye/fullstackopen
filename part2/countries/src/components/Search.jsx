@@ -82,8 +82,9 @@ function Search() {
           'selectedCountry exist',
           Object.keys(selectedCountry).length
         )}
+        {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
         <Details country={selectedCountry} />
-        <h3>Weather in {selectedCountry.capital[0]}</h3>
+        <h3>Weather in { selectedCountry.capital[0] }</h3>
         <Weather city={selectedCountry.capital[0]} />
       </div>
     </div>
