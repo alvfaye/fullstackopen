@@ -39,11 +39,11 @@ const Test = (city, setWeatherData) => {
 const Weather = ({ city }) => {
   const [weather, setWeatherData] = useState({});
   Test(city, setWeatherData);
-
+  weather.icon = '10d';
   return (
     <>
       <div>{weather.desc}</div>
-      <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} />
+      <img src={`/images/${weather.icon}@2x.png`} />
     </>
   );
 };
