@@ -27,21 +27,23 @@ const Test = (city, setWeatherData) => {
       ${weather[0].description} \n
       temperature ${main.temp} \n
       wind ${wind.deg} m/s \n
+      <img src="" />
       `;
 
-      setWeatherData(desc);
+      setWeatherData(weatherObj);
       console.log('desc', desc, JSON.stringify(weatherObj));
     })
     .catch(console.error);
 };
 
 const Weather = ({ city }) => {
-  const [weather, setWeatherData] = useState('');
+  const [weather, setWeatherData] = useState({});
   Test(city, setWeatherData);
 
   return (
     <>
-      <div>{weather}</div>
+      <div>{weather.desc}</div>
+      <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} />
     </>
   );
 };
