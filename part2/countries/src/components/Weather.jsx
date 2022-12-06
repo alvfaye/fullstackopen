@@ -54,10 +54,10 @@ const Weather = ({ city }) => {
   console.log('weather Info', city, JSON.stringify(weatherInfo));
   const desc = weatherInfo["desc"]
   return (
-    <>
+    <div className="bg-slate-300 shadow-xl m-5 w-fit shadow-gray-500 border">
       <div>{weatherInfo["desc"]}</div>
       <img src={`/images/${weatherInfo["icon"]}@2x.png`} alt={weatherInfo["desc"]} />
-    </>
+    </div>
   );
 };
 
