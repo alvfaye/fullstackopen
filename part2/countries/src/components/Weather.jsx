@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 // const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553';
 const APIkey = process.env.OpenWeatherAPIkey;
-const weatherObj = {};
+let weatherObj = {};
 
 const Test = (city) => {
   const fetchData = async (city) => {
@@ -12,7 +12,7 @@ const Test = (city) => {
     const { data } = await axios.get(url);
 
     //console.log('data assigned to setWeatherDAta', JSON.stringify(data));
-    const weathr = data.filter(
+    let weathr = data.filter(
       (x) => x.name.toLowerCase() === city.toLowerCase()
     );
     console.log('weathr', weathr);
@@ -27,10 +27,10 @@ const Test = (city) => {
 
       const { weather, main, wind } = response;
       weatherObj = {
-        desc: weather[0].description,
-        icon: weather[0].icon,
-        temp: main.temp,
-        wind: wind.deg,
+        "desc": weather[0].description,
+        "icon": weather[0].icon,
+        "temp": main.temp,
+        "wind": wind.deg,
       };
       let desc = `
       ${weather[0].description} \n
@@ -38,22 +38,25 @@ const Test = (city) => {
       wind ${wind.deg} m/s \n
       <img src="" />
       `;
-
+console.log('desc',desc)
       //setWeatherData(weatherObj);
-      console.log('desc', desc, JSON.stringify(weatherObj));
+      console.log('desc....', weatherObj["desc"], JSON.stringify(weatherObj));
     })
     .catch(console.error);
+  
+  return { "desc": weatherObj["desc"], "icon": weatherObj["icon"] }
 };
 
 const Weather = ({ city }) => {
   //const [weather, setWeatherData] = useState({});
-  Test(city);
+  const weatherInfo = Test(city);
   //weather.icon = '10d';
-  console.log('weather data', city, JSON.stringify(weatherObj));
+  console.log('weather Info', city, JSON.stringify(weatherInfo));
+  const desc = weatherInfo["desc"]
   return (
     <>
-      <div>{weatherObj.desc}</div>
-      <img src={`/images/${weatherObj.icon}@2x.png`} />
+      <div>{weatherInfo["desc"]}</div>
+      <img src={`/images/${weatherInfo["icon"]}@2x.png`} alt={weatherInfo["desc"]} />
     </>
   );
 };
