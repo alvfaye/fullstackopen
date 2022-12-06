@@ -45,10 +45,10 @@ const Test = (city) => {
     .catch(console.error);
 
   return {
-    "desc": weatherObj['desc'],
-    "icon": weatherObj['icon'],
-    "temp": weatherObj['temp'],
-    "wind": weatherObj['wind'],
+    desc: weatherObj['desc'],
+    icon: weatherObj['icon'],
+    temp: weatherObj['temp'],
+    wind: weatherObj['wind'],
   };
 };
 
