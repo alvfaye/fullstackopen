@@ -6,16 +6,24 @@ const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553';
 const Test = (city, setWeatherData) => {
   const fetchData = async (city) => {
     console.log('APIkey', APIkey);
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`;
+    //const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`;
+    const url = `http://localhost:3004/weather`;
 
-    console.log('api url', url);
     const { data } = await axios.get(url);
-    console.log('data assigned to setWeatherDAta', JSON.stringify(data));
-    return data;
+
+    //console.log('data assigned to setWeatherDAta', JSON.stringify(data));
+    const weathr = data.filter(
+      (x) => x.name.toLowerCase() === city.toLowerCase()
+    );
+    console.log('weathr', weathr);
+
+    //return data;
+    return weathr[0];
   };
   fetchData(city)
     .then((response) => {
       console.log('inside response', city, JSON.stringify(response));
+
       const { weather, main, wind } = response;
       const weatherObj = {
         desc: weather[0].description,
@@ -39,7 +47,8 @@ const Test = (city, setWeatherData) => {
 const Weather = ({ city }) => {
   const [weather, setWeatherData] = useState({});
   Test(city, setWeatherData);
-  weather.icon = '10d';
+  //weather.icon = '10d';
+  console.log('weather data', city, JSON.stringify(weather));
   return (
     <>
       <div>{weather.desc}</div>
