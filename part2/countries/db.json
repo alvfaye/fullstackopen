@@ -26193,210 +26193,251 @@
     }
   ],
   "weather": [
-{
-  "coord": { "lon": 120.9822, "lat": 14.6042 },
-  "weather": [
     {
-      "id": 804,
-      "main": "Clouds",
-      "description": "overcast clouds",
-      "icon": "04n"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 301,
-    "feels_like": 304.59,
-    "temp_min": 300.4,
-    "temp_max": 301,
-    "pressure": 1010,
-    "humidity": 78
-  },
-  "visibility": 10000,
-  "wind": { "speed": 0.89, "deg": 21, "gust": 3.13 },
-  "clouds": { "all": 100 },
-  "dt": 1670158896,
-  "sys": {
-    "type": 2,
-    "id": 2008256,
-    "country": "PH",
-    "sunrise": 1670105216,
-    "sunset": 1670145936
-  },
-  "timezone": 28800,
-  "id": 1701668,
-  "name": "Manila",
-  "cod": 200
-},
-{
-  "coord": { "lon": 120.9822, "lat": 14.6042 },
-  "weather": [
+      "coord": { "lon": 120.9822, "lat": 14.6042 },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04n"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 301,
+        "feels_like": 304.59,
+        "temp_min": 300.4,
+        "temp_max": 301,
+        "pressure": 1010,
+        "humidity": 78
+      },
+      "visibility": 10000,
+      "wind": { "speed": 0.89, "deg": 21, "gust": 3.13 },
+      "clouds": { "all": 100 },
+      "dt": 1670158896,
+      "sys": {
+        "type": 2,
+        "id": 2008256,
+        "country": "PH",
+        "sunrise": 1670105216,
+        "sunset": 1670145936
+      },
+      "timezone": 28800,
+      "id": 1701668,
+      "name": "Manila",
+      "cod": 200
+    },
     {
-      "id": 804,
-      "main": "Clouds",
-      "description": "overcast clouds",
-      "icon": "04n"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 301,
-    "feels_like": 304.59,
-    "temp_min": 300.4,
-    "temp_max": 301,
-    "pressure": 1010,
-    "humidity": 78
-  },
-  "visibility": 10000,
-  "wind": { "speed": 1.9, "deg": 21, "gust": 3.13 },
-  "clouds": { "all": 100 },
-  "dt": 1670158896,
-  "sys": {
-    "type": 2,
-    "id": 2008256,
-    "country": "SO",
-    "sunrise": 1670105216,
-    "sunset": 1670145936
-  },
-  "timezone": 28800,
-  "id": 1701668,
-  "name": "Seoul",
-  "cod": 200
-},
-{
-  "coord": { "lon": 103.8501, "lat": 1.2897 },
-  "weather": [
+      "coord": { "lon": 120.9822, "lat": 14.6042 },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04n"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 301,
+        "feels_like": 304.59,
+        "temp_min": 300.4,
+        "temp_max": 301,
+        "pressure": 1010,
+        "humidity": 78
+      },
+      "visibility": 10000,
+      "wind": { "speed": 1.9, "deg": 21, "gust": 3.13 },
+      "clouds": { "all": 100 },
+      "dt": 1670158896,
+      "sys": {
+        "type": 2,
+        "id": 2008256,
+        "country": "SO",
+        "sunrise": 1670105216,
+        "sunset": 1670145936
+      },
+      "timezone": 28800,
+      "id": 1701668,
+      "name": "Seoul",
+      "cod": 200
+    },
     {
-      "id": 802,
-      "main": "Clouds",
-      "description": "scattered clouds",
-      "icon": "03d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 302.82,
-    "feels_like": 307.62,
-    "temp_min": 300.1,
-    "temp_max": 305.99,
-    "pressure": 1007,
-    "humidity": 71
-  },
-  "visibility": 9000,
-  "wind": { "speed": 4.12, "deg": 350 },
-  "clouds": { "all": 40 },
-  "dt": 1670306713,
-  "sys": {
-    "type": 1,
-    "id": 9470,
-    "country": "SG",
-    "sunrise": 1670280849,
-    "sunset": 1670324225
-  },
-  "timezone": 28800,
-  "id": 1880252,
-  "name": "Singapore",
-  "cod": 200
-},
-{
-  "coord": { "lon": 55.3047, "lat": 25.2582 },
-  "weather": [
+      "coord": { "lon": 103.8501, "lat": 1.2897 },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 302.82,
+        "feels_like": 307.62,
+        "temp_min": 300.1,
+        "temp_max": 305.99,
+        "pressure": 1007,
+        "humidity": 71
+      },
+      "visibility": 9000,
+      "wind": { "speed": 4.12, "deg": 350 },
+      "clouds": { "all": 40 },
+      "dt": 1670306713,
+      "sys": {
+        "type": 1,
+        "id": 9470,
+        "country": "SG",
+        "sunrise": 1670280849,
+        "sunset": 1670324225
+      },
+      "timezone": 28800,
+      "id": 1880252,
+      "name": "Singapore",
+      "cod": 200
+    },
     {
-      "id": 803,
-      "main": "Clouds",
-      "description": "broken clouds",
-      "icon": "04d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 298.88,
-    "feels_like": 298.87,
-    "temp_min": 298.88,
-    "temp_max": 298.88,
-    "pressure": 1018,
-    "humidity": 52,
-    "sea_level": 1018,
-    "grnd_level": 1017
-  },
-  "visibility": 10000,
-  "wind": { "speed": 1.66, "deg": 132, "gust": 1.86 },
-  "clouds": { "all": 51 },
-  "dt": 1670306618,
-  "sys": { "country": "AE", "sunrise": 1670295049, "sunset": 1670333334 },
-  "timezone": 14400,
-  "id": 292223,
-  "name": "Dubai",
-  "cod": 200
-},
-{
-  "coord": { "lon": -3.7396, "lat": 5.2038 },
-  "weather": [
-    { "id": 500, "main": "Rain", "description": "light rain", "icon": "10d" }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 303.14,
-    "feels_like": 308.16,
-    "temp_min": 303.14,
-    "temp_max": 303.14,
-    "pressure": 1011,
-    "humidity": 70,
-    "sea_level": 1011,
-    "grnd_level": 1010
-  },
-  "visibility": 10000,
-  "wind": { "speed": 2.79, "deg": 220, "gust": 1.77 },
-  "rain": { "1h": 0.21 },
-  "clouds": { "all": 100 },
-  "dt": 1670332335,
-  "sys": {
-    "type": 1,
-    "id": 1162,
-    "country": "CI",
-    "sunrise": 1670307068,
-    "sunset": 1670349664
-  },
-  "timezone": 0,
-  "id": 2288873,
-  "name": "France",
-  "cod": 200
-},
-{
-  "coord": { "lon": -0.1257, "lat": 51.5085 },
-  "weather": [
+      "coord": { "lon": 55.3047, "lat": 25.2582 },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 298.88,
+        "feels_like": 298.87,
+        "temp_min": 298.88,
+        "temp_max": 298.88,
+        "pressure": 1018,
+        "humidity": 52,
+        "sea_level": 1018,
+        "grnd_level": 1017
+      },
+      "visibility": 10000,
+      "wind": { "speed": 1.66, "deg": 132, "gust": 1.86 },
+      "clouds": { "all": 51 },
+      "dt": 1670306618,
+      "sys": { "country": "AE", "sunrise": 1670295049, "sunset": 1670333334 },
+      "timezone": 14400,
+      "id": 292223,
+      "name": "Dubai",
+      "cod": 200
+    },
     {
-      "id": 803,
-      "main": "Clouds",
-      "description": "broken clouds",
-      "icon": "04d"
+      "coord": { "lon": -3.7396, "lat": 5.2038 },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 303.14,
+        "feels_like": 308.16,
+        "temp_min": 303.14,
+        "temp_max": 303.14,
+        "pressure": 1011,
+        "humidity": 70,
+        "sea_level": 1011,
+        "grnd_level": 1010
+      },
+      "visibility": 10000,
+      "wind": { "speed": 2.79, "deg": 220, "gust": 1.77 },
+      "rain": { "1h": 0.21 },
+      "clouds": { "all": 100 },
+      "dt": 1670332335,
+      "sys": {
+        "type": 1,
+        "id": 1162,
+        "country": "CI",
+        "sunrise": 1670307068,
+        "sunset": 1670349664
+      },
+      "timezone": 0,
+      "id": 2288873,
+      "name": "France",
+      "cod": 200
+    },
+    {
+      "coord": { "lon": -0.1257, "lat": 51.5085 },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 280.11,
+        "feels_like": 278.32,
+        "temp_min": 278.57,
+        "temp_max": 281.58,
+        "pressure": 1022,
+        "humidity": 75
+      },
+      "visibility": 10000,
+      "wind": { "speed": 2.57, "deg": 330 },
+      "clouds": { "all": 75 },
+      "dt": 1670332309,
+      "sys": {
+        "type": 2,
+        "id": 268730,
+        "country": "GB",
+        "sunrise": 1670313024,
+        "sunset": 1670341974
+      },
+      "timezone": 0,
+      "id": 2643743,
+      "name": "London",
+      "cod": 200
+    },
+    {
+      "coord": { "lon": -120.5015, "lat": 47.5001 },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04n"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 267.51,
+        "feels_like": 267.51,
+        "temp_min": 266.37,
+        "temp_max": 267.91,
+        "pressure": 1019,
+        "humidity": 87,
+        "sea_level": 1019,
+        "grnd_level": 956
+      },
+      "visibility": 4210,
+      "wind": { "speed": 0.58, "deg": 262, "gust": 0.53 },
+      "clouds": { "all": 59 },
+      "dt": 1670332338,
+      "sys": {
+        "type": 2,
+        "id": 2019804,
+        "country": "US",
+        "sunrise": 1670340899,
+        "sunset": 1670371895
+      },
+      "timezone": -28800,
+      "id": 5815135,
+      "name": "Washington",
+      "cod": 200
     }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 280.11,
-    "feels_like": 278.32,
-    "temp_min": 278.57,
-    "temp_max": 281.58,
-    "pressure": 1022,
-    "humidity": 75
-  },
-  "visibility": 10000,
-  "wind": { "speed": 2.57, "deg": 330 },
-  "clouds": { "all": 75 },
-  "dt": 1670332309,
-  "sys": {
-    "type": 2,
-    "id": 268730,
-    "country": "GB",
-    "sunrise": 1670313024,
-    "sunset": 1670341974
-  },
-  "timezone": 0,
-  "id": 2643743,
-  "name": "London",
-  "cod": 200
-}
-
   ]
 }

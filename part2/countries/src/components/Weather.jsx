@@ -27,10 +27,10 @@ const Test = (city) => {
 
       const { weather, main, wind } = response;
       weatherObj = {
-        "desc": weather[0].description,
-        "icon": weather[0].icon,
-        "temp": main.temp,
-        "wind": wind.deg,
+        desc: weather[0].description,
+        icon: weather[0].icon,
+        temp: main.temp,
+        wind: wind.deg,
       };
       let desc = `
       ${weather[0].description} \n
@@ -38,25 +38,35 @@ const Test = (city) => {
       wind ${wind.deg} m/s \n
       <img src="" />
       `;
-console.log('desc',desc)
+      console.log('desc', desc);
       //setWeatherData(weatherObj);
-      console.log('desc....', weatherObj["desc"], JSON.stringify(weatherObj));
+      console.log('desc....', weatherObj['desc'], JSON.stringify(weatherObj));
     })
     .catch(console.error);
-  
-  return { "desc": weatherObj["desc"], "icon": weatherObj["icon"] }
+
+  return {
+    "desc": weatherObj['desc'],
+    "icon": weatherObj['icon'],
+    "temp": weatherObj['temp'],
+    "wind": weatherObj['wind'],
+  };
 };
 
 const Weather = ({ city }) => {
   //const [weather, setWeatherData] = useState({});
-  const weatherInfo = Test(city);
+  let weatherInfo = Test(city);
   //weather.icon = '10d';
   console.log('weather Info', city, JSON.stringify(weatherInfo));
-  const desc = weatherInfo["desc"]
+  //const desc = weatherInfo['desc'];
   return (
     <div className="bg-slate-300 shadow-xl m-5 w-fit shadow-gray-500 border">
-      <div>{weatherInfo["desc"]}</div>
-      <img src={`/images/${weatherInfo["icon"]}@2x.png`} alt={weatherInfo["desc"]} />
+      <div>{weatherInfo['desc']}</div>
+      <div>{weatherInfo['temp']} degrees</div>
+      <div>{weatherInfo['wind']} m/s</div>
+      <img
+        src={`/images/${weatherInfo['icon']}@2x.png`}
+        alt={weatherInfo['desc']}
+      />
     </div>
   );
 };
