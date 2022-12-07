@@ -4,10 +4,10 @@ import Search from './Search';
 import Weather from './Weather';
 
 function App() {
-  const [location, setCountry] = useState('')
+  const [location, setLocation] = useState('')
   return (
     <div>
-      <Search func={setCountry} />
+      <Search func={setLocation} />
       <Details country={location}/>
       <Weather city={location}/>
     </div>

@@ -26,7 +26,7 @@ const defaultCountry = {
   timezones: ['UTC+08:00'],
 };
 
-function Search() {
+function Search({func}) {
   const [name, setName] = useState('');
   const [countries, setCountries] = useState([]);
   const [tmpName, settmpName] = useState('');
