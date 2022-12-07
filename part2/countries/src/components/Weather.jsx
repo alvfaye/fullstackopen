@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553';
 const APIkey = process.env.OpenWeatherAPIkey;
 let weatherObj = {};
@@ -53,8 +53,11 @@ const Test = (city) => {
 };
 
 const Weather = ({ city }) => {
-  //const [weather, setWeatherData] = useState({});
+  const [weather, setWeatherData] = useState({});
   let weatherInfo = Test(city);
+  useEffect(() => {
+    console.log('city...!',city)
+  },[city])
   //weather.icon = '10d';
   console.log('weather Info', city, JSON.stringify(weatherInfo));
   //const desc = weatherInfo['desc'];

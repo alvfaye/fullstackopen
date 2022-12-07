@@ -1,7 +1,16 @@
-import Search from './components/Search';
-import { useState } from 'react';
+import React from 'react';
+import Details from './Details';
+import Search from './Search';
+import Weather from './Weather';
 
-const App = () => <Search />
-
+function App() {
+  return (
+    <div>
+      <Search />
+      <Details />
+      <Weather />
+    </div>
+  );
+}
 
 export default App;
