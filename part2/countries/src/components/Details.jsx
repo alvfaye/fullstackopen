@@ -13,7 +13,7 @@ function Details({ country }) {
         id="my-modal"
       >
         {/* main details */}
-        <h5>{country.name.common}</h5>
+        {/* <h5>{country.name.common}</h5> */}
         <h6>capital {country.capital[0]}</h6>
         <h6>area {country.area}</h6>
         {/* list languages */}

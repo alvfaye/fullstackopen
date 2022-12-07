@@ -59,7 +59,7 @@ function Search({func}) {
         <button
           className="border-2 border-green-200 text-xl px-2 py-1 mx-3 bg-green-200 rounded-2xl shadow-lg"
           type="button"
-          onClick={() => setSelectedCountry(country)}
+          onClick={() => func(country)}   //setSelectedCountry(country)}
         >
           Show
         </button>
@@ -89,9 +89,9 @@ function Search({func}) {
           Object.keys(selectedCountry).length
         )} */}
         {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
-        <Details country={selectedCountry} />
+        {/* <Details country={selectedCountry} />
         <h3>Weather in {selectedCountry.capital[0]}</h3>
-        <Weather city={selectedCountry.capital[0]} />
+        <Weather city={selectedCountry.capital[0]} /> */}
       </div>
     </div>
   );
