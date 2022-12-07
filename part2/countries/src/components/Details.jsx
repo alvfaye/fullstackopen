@@ -1,9 +1,8 @@
 import React from 'react';
-import Weather from './Weather';
 
 function Details({ country }) {
   //let languages = ['Arabic', 'English'];
-  console.log('country passed to DETAILS',JSON.stringify(country))
+  console.log('country passed to DETAILS', country);
   let languages = Object.values(country.languages);
   console.log('languages', languages);
   return (

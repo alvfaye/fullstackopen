@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Details from './components/Details';
 import Search from './components/Search';
 import Weather from './components/Weather';
@@ -27,13 +27,21 @@ const defaultCountry = {
 
 function App() {
   const [location, setLocation] = useState(defaultCountry);
+  const [refreshDetails, setRefreshDetails] = useState(false);
+  useEffect(() => {
+    setRefreshDetails(true);
+  }, [location]);
   return (
     <div>
       <Search func={setLocation} />
-      <h2 className="m-5 text-2xl font-semibold text-white bg-lime-600">{location.name['common']}</h2>
-      {/* <Details country={location.name['common']} /> */}
-      <h2 className="m-5 text-2xl font-semibold text-stone-100 bg-lime-300">Weather in {location.capital[0]}</h2>
-      <Weather city={location} />
+      <h2 className="m-5 text-2xl font-semibold text-white bg-lime-600">
+        {location.name['common']}
+      </h2>
+      {refreshDetails && <Details country={location} />}
+      <h2 className="m-5 text-2xl font-semibold text-stone-100 bg-lime-300">
+        Weather in {location.capital[0]}
+      </h2>
+      {refreshDetails && <Weather country={location} />}
     </div>
   );
 }

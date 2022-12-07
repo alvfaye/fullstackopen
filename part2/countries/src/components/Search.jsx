@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Details from './Details';
-import Weather from './Weather';
-import Test from './Test';
 
 const defaultCountry = {
   name: {
@@ -52,6 +49,7 @@ function Search({func}) {
       .catch(console.error);
   }, [name]);
 
+  
   const Country = ({ country }) => {
     return (
       <div>

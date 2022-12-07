@@ -2,74 +2,89 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 // const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553';
 const APIkey = process.env.OpenWeatherAPIkey;
-let weatherObj = {};
 
-const Test = (city) => {
-  const fetchData = async (city) => {
-    console.log('APIkey', APIkey);
+const WeatherInfo = ({ name, city }) => {
+  let weatherObj = {
+    desc: '',
+    icon: '',
+    temp: '',
+    wind: '',
+  };
+  const [weatherInfo, setWeatherInfo] = useState({ weatherObj });
+
+  function filterCity(item, city, countryLocation) {
+    console.log('item-city----------', item, city);
+    return item.name === city || item.name === countryLocation;
+  }
+
+  const fetchData = async () => {
+    //console.log('APIkey', APIkey);
     //const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`;
     const url = `http://localhost:3004/weather`;
     const { data } = await axios.get(url);
 
-    //console.log('data assigned to setWeatherDAta', JSON.stringify(data));
-    let weathr = data.filter(
-      (x) => x.name.toLowerCase() === city.toLowerCase()
-    );
-    console.log('weathr', weathr);
+    //console.log('data generated....', JSON.stringify(data));
+
+    //console.log('weathr', weathr);
 
     //return data;
-    return weathr[0];
+    return data;
   };
 
-  fetchData(city)
+  fetchData()
     .then((response) => {
-      console.log('inside response', city, JSON.stringify(response));
+      console.log('response Weather', response);
+      let weathr = response.filter((x) => filterCity(x, city, name));
 
-      const { weather, main, wind } = response;
+      const { weather, main, wind } = weathr[0];
       weatherObj = {
         desc: weather[0].description,
         icon: weather[0].icon,
         temp: main.temp,
         wind: wind.deg,
       };
+      setWeatherInfo(weatherObj);
+      console.log('weatherObj', weatherObj);
       let desc = `
       ${weather[0].description} \n
       temperature ${main.temp} \n
       wind ${wind.deg} m/s \n
       <img src="" />
       `;
-      console.log('desc', desc);
+      // console.log('desc', desc);
       //setWeatherData(weatherObj);
-      console.log('desc....', weatherObj['desc'], JSON.stringify(weatherObj));
+      //console.log('desc....', weatherObj['desc'], JSON.stringify(weatherObj));
     })
     .catch(console.error);
 
-  return {
-    desc: weatherObj['desc'],
-    icon: weatherObj['icon'],
-    temp: weatherObj['temp'],
-    wind: weatherObj['wind'],
-  };
+  return (
+    //
+    <div>
+      Weather Info
+      <div>{weatherObj['desc']}</div>
+    </div>
+  );
 };
 
-const Weather = ({ city }) => {
-  const [weather, setWeatherData] = useState({});
-  let weatherInfo = Test(city);
-  useEffect(() => {
-    console.log('city...!',city)
-  },[city])
+const Weather = ({ country }) => {
+  //const [weather, setWeatherData] = useState({});
+  // Test(country.capital[0], country.name.common);
+  const capital = country.capital[0];
+  const countryName = country.name.common;
+  //setWeatherData(weatherInfo);
+  // useEffect(() => {
+  //   console.log('city...!',city)
+  // },[city])
   //weather.icon = '10d';
-  console.log('weather Info', city, JSON.stringify(weatherInfo));
+  console.log('weather Info', countryName, capital);
   //const desc = weatherInfo['desc'];
   return (
     <div className="bg-slate-300 shadow-xl m-5 w-fit shadow-gray-500 border">
-      <div>{weatherInfo['desc']}</div>
+      <WeatherInfo name={countryName} city={capital} />
+      {/* <div>{weatherInfo['desc']}</div>
       <div>{weatherInfo['temp']} degrees</div>
       <div>{weatherInfo['wind']} m/s</div>
-      <img
-        src={`/images/${weatherInfo['icon']}@2x.png`}
-        alt={weatherInfo['desc']}
-      />
+      <img src={`/images/${weatherInfo['icon']}@2x.png`} alt={weatherInfo['desc']} /> */}
     </div>
   );
 };
