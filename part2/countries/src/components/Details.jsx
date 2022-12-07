@@ -3,7 +3,8 @@ import Weather from './Weather';
 
 function Details({ country }) {
   //let languages = ['Arabic', 'English'];
-  let languages = Object.values(country?.languages);
+  console.log('country passed to DETAILS',JSON.stringify(country))
+  let languages = Object.values(country.languages);
   console.log('languages', languages);
   return (
     Object.keys(country).length && (
