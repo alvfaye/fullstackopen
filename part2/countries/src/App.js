@@ -4,11 +4,12 @@ import Search from './Search';
 import Weather from './Weather';
 
 function App() {
+  const [location, setCountry] = useState('')
   return (
     <div>
-      <Search />
-      <Details />
-      <Weather />
+      <Search func={setCountry} />
+      <Details country={location}/>
+      <Weather city={location}/>
     </div>
   );
 }
