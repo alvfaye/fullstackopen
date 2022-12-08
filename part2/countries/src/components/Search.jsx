@@ -26,7 +26,6 @@ const defaultCountry = {
 function Search({func}) {
   const [name, setName] = useState('');
   const [countries, setCountries] = useState([]);
-  const [tmpName, settmpName] = useState('');
   const [selectedCountry, setSelectedCountry] = useState(defaultCountry);
   useEffect(() => {
     const fetchData = async () => {
@@ -42,9 +41,7 @@ function Search({func}) {
     };
     fetchData()
       .then((response) => {
-        //console.log('inside response', name, response.data);
-        //setCountries(response.data.slice(0, 3));
-        setCountries(response.slice(-5));
+          setCountries(response.slice(-5));
       })
       .catch(console.error);
   }, [name]);
