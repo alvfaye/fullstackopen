@@ -56,7 +56,6 @@ const WeatherInfo = ({ name, city }) => {
     .catch(console.error);
 
   return (
-    //
     <div>
       Weather Info
       <div>{desc}</div>
