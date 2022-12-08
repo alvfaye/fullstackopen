@@ -23,7 +23,7 @@ const defaultCountry = {
   timezones: ['UTC+08:00'],
 };
 
-function Search({func}) {
+function Search({ func }) {
   const [name, setName] = useState('');
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(defaultCountry);
@@ -41,12 +41,11 @@ function Search({func}) {
     };
     fetchData()
       .then((response) => {
-          setCountries(response.slice(-5));
+        setCountries(response.slice(-5));
       })
       .catch(console.error);
   }, [name]);
 
-  
   const Country = ({ country }) => {
     return (
       <div>
@@ -54,7 +53,7 @@ function Search({func}) {
         <button
           className="border-2 border-green-200 text-xl px-2 py-1 mx-3 bg-green-200 rounded-2xl shadow-lg"
           type="button"
-          onClick={() => func(country)}   //setSelectedCountry(country)}
+          onClick={() => func(country)} //setSelectedCountry(country)}
         >
           Show
         </button>
@@ -79,14 +78,6 @@ function Search({func}) {
         {countries.map((country, index) => (
           <Country key={index} country={country} />
         ))}
-        {/* {console.log(
-          'selectedCountry exist',
-          Object.keys(selectedCountry).length
-        )} */}
-        {/* {console.log('selectedCountry', selectedCountry.name.common)} */}
-        {/* <Details country={selectedCountry} />
-        <h3>Weather in {selectedCountry.capital[0]}</h3>
-        <Weather city={selectedCountry.capital[0]} /> */}
       </div>
     </div>
   );
