@@ -10,6 +10,9 @@ const WeatherInfo = ({ name, city }) => {
     temp: '',
     wind: '',
   };
+  const [desc, setDesc] = useState(
+    'weather data should display here...........'
+  );
   const [weatherInfo, setWeatherInfo] = useState({ weatherObj });
 
   function filterCity(item, city, countryLocation) {
@@ -18,40 +21,35 @@ const WeatherInfo = ({ name, city }) => {
   }
 
   const fetchData = async () => {
-    //console.log('APIkey', APIkey);
     //const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`;
     const url = `http://localhost:3004/weather`;
     const { data } = await axios.get(url);
-
-    //console.log('data generated....', JSON.stringify(data));
-
-    //console.log('weathr', weathr);
-
-    //return data;
     return data;
   };
 
   fetchData()
     .then((response) => {
-      console.log('response Weather', response);
+      // console.log('response Weather', response);
       let weathr = response.filter((x) => filterCity(x, city, name));
-
+      console.log('WEATHR', weathr[0]);
       const { weather, main, wind } = weathr[0];
+      console.log('-***********', weather, main, wind);
       weatherObj = {
-        desc: weather[0].description,
+        desc: weather[0].description, // weather[0].description,
         icon: weather[0].icon,
         temp: main.temp,
         wind: wind.deg,
       };
-      setWeatherInfo(weatherObj);
+
       console.log('weatherObj', weatherObj);
-      let desc = `
+      const d = `
       ${weather[0].description} \n
       temperature ${main.temp} \n
       wind ${wind.deg} m/s \n
-      <img src="" />
       `;
-      // console.log('desc', desc);
+      setDesc(d);
+      setWeatherInfo(weatherObj);
+      console.log('desc', d);
       //setWeatherData(weatherObj);
       //console.log('desc....', weatherObj['desc'], JSON.stringify(weatherObj));
     })
@@ -61,7 +59,11 @@ const WeatherInfo = ({ name, city }) => {
     //
     <div>
       Weather Info
-      <div>{weatherObj['desc']}</div>
+      <div>{desc}</div>
+      <div>{weatherInfo['desc']}</div>
+      <div>{weatherInfo['temp']} degrees</div>
+      <div>{weatherInfo['wind']} m/s</div>
+      <img src={`/images/${weatherInfo['icon']}@2x.png`} alt={weatherInfo['desc']} />
     </div>
   );
 };
