@@ -32,7 +32,14 @@ const WeatherInfo = ({ name, city }) => {
     };
     try {
       const url = `http://localhost:3004/weather`;
-      const { data } = await axios.get(url, config);
+      const { data } = await axios.get(url, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        },
+      });
     } catch (error) {
       console.error(error);
     }

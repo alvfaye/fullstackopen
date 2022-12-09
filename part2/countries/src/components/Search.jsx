@@ -38,10 +38,14 @@ function Search({ func }) {
         },
       };
       try {
-        const { data } = await axios.get(
-          'http://localhost:3004/countries',
-          config
-        );
+        const { data } = await axios.get('http://localhost:3004/countries', {
+          method: 'GET',
+          mode: 'no-cors',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
+        });
         console.log(data);
       } catch (error) {
         console.error(error);
