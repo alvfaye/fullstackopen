@@ -37,10 +37,11 @@ const WeatherInfo = ({ name, city }) => {
         'application/json;charset=utf-8';
       axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
       const { data } = await axios.get(url);
+      return data
     } catch (error) {
       console.error('error........',error);
     }
-    return data;
+    //return data;
   };
 
   fetchData()

@@ -38,15 +38,14 @@ function Search({ func }) {
         },
       };
       try {
-        const { data } = await axios.get('http://localhost:3004/countries', {
-          method: 'GET',
-          mode: 'no-cors',
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
-          },
-        });
+        //const url = '/countries'; //`http://localhost:3004/weather`;
+        axios.defaults.baseURL = 'http://localhost:3004';
+        axios.defaults.headers.post['Content-Type'] =
+          'application/json;charset=utf-8';
+        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+        const { data } = await axios.get('/countries');
         console.log(data);
+        //return data
       } catch (error) {
         console.error(error);
       }
