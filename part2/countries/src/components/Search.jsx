@@ -29,11 +29,22 @@ function Search({ func }) {
   const [selectedCountry, setSelectedCountry] = useState(defaultCountry);
   useEffect(() => {
     const fetchData = async () => {
+      const config = {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Request-Method': '*',
+          'Access-Control-Allow-Headers':
+            'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+        },
+      };
       try {
-        const { data } = await axios.get('http://localhost:3004/countries');
-        console.log(data)
+        const { data } = await axios.get(
+          'http://localhost:3004/countries',
+          config
+        );
+        console.log(data);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
       //`https://restcountries.com/v3.1/name/${name}`
       const newdata = data.filter((item) => {

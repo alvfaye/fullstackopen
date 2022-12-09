@@ -22,8 +22,20 @@ const WeatherInfo = ({ name, city }) => {
 
   const fetchData = async () => {
     //const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`;
-    const url = `http://localhost:3004/weather`;
-    const { data } = await axios.get(url);
+    const config = {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Request-Method': '*',
+        'Access-Control-Allow-Headers':
+          'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+      },
+    };
+    try {
+      const url = `http://localhost:3004/weather`;
+      const { data } = await axios.get(url, config);
+    } catch (error) {
+      console.error(error);
+    }
     return data;
   };
 
@@ -62,7 +74,10 @@ const WeatherInfo = ({ name, city }) => {
       <div>{weatherInfo['desc']}</div>
       <div>{weatherInfo['temp']} degrees</div>
       <div>{weatherInfo['wind']} m/s</div>
-      <img src={`/images/${weatherInfo['icon']}@2x.png`} alt={weatherInfo['desc']} />
+      <img
+        src={`/images/${weatherInfo['icon']}@2x.png`}
+        alt={weatherInfo['desc']}
+      />
     </div>
   );
 };
