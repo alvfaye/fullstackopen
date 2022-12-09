@@ -72,7 +72,7 @@ function Search({ func }) {
         <button
           className="border-2 border-green-200 text-xl px-2 py-1 mx-3 bg-green-200 rounded-2xl shadow-lg"
           type="button"
-          onClick={() => func(country)} //setSelectedCountry(country)}
+          onClick={() => func(country)}
         >
           Show
         </button>
