@@ -46,17 +46,18 @@ function Search({ func }) {
         const { data } = await axios.get('/countries');
         console.log(data);
         //return data
+
+        //`https://restcountries.com/v3.1/name/${name}`
+        const newdata = data.filter((item) => {
+          return item.name.common
+            .toLowerCase()
+            .includes(name.toLocaleLowerCase());
+        });
+        console.log('inside fetchdata', newdata[0]);
+        return newdata;
       } catch (error) {
         console.error(error);
       }
-      //`https://restcountries.com/v3.1/name/${name}`
-      const newdata = data.filter((item) => {
-        return item.name.common
-          .toLowerCase()
-          .includes(name.toLocaleLowerCase());
-      });
-      console.log('inside fetchdata', newdata[0]);
-      return newdata;
     };
     fetchData()
       .then((response) => {
