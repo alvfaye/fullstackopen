@@ -29,7 +29,12 @@ function Search({ func }) {
   const [selectedCountry, setSelectedCountry] = useState(defaultCountry);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get('http://localhost:3004/countries');
+      try {
+        const { data } = await axios.get('http://localhost:3004/countries');
+        console.log(data)
+      } catch (error) {
+        console.error(error)
+      }
       //`https://restcountries.com/v3.1/name/${name}`
       const newdata = data.filter((item) => {
         return item.name.common
