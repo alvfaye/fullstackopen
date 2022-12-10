@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 // const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553';
-const APIkey = process.env.OpenWeatherAPIkey;
+const APIkey = process.env.REACT_APP_OpenWeatherAPIkey;
 
 const WeatherInfo = ({ name, city }) => {
   let weatherObj = {
@@ -21,6 +21,7 @@ const WeatherInfo = ({ name, city }) => {
   }
 
   const fetchData = async () => {
+    console.log('API Key', APIkey);
     const api_url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`;
     const config = {
       headers: {
