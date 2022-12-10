@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 // const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553';
-const APIkey = process.env.REACT_APP_OpenWeatherAPIkey;
+const APIkey = process.env.REACT_APP_OPEN_WEATHER_API;
 
 const WeatherInfo = ({ name, city }) => {
   let weatherObj = {
