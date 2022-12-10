@@ -16,7 +16,8 @@ const WeatherInfo = ({ name, city }) => {
   const [weatherInfo, setWeatherInfo] = useState({ weatherObj });
 
   function filterCity(item, city, countryLocation) {
-    console.log('item-city----------', item, city);
+    console.log('item-city----------', item);
+    console.log('city', city);
     return item.name === city || item.name === countryLocation;
   }
 
