@@ -25,13 +25,18 @@ const defaultCountry = {
   timezones: ['UTC+08:00'],
 };
 
+function weatherApi({ country }) {}
+
 function App() {
   const [location, setLocation] = useState(defaultCountry);
   const [refreshDetails, setRefreshDetails] = useState(false);
-  useEffect(() => {
-    // setRefreshDetails(true);
-    
-  }, [location]);
+  const [weather, setWeather] = useState({
+    desc: '',
+    icon: '',
+    temp: '',
+    wind: '',
+  });
+  useEffect(() => {}, [location]);
   return (
     <div>
       <Search func={setLocation} />
@@ -42,7 +47,7 @@ function App() {
       <h2 className="m-5 text-2xl font-semibold text-stone-100 bg-lime-300">
         Weather in {location.capital[0]}
       </h2>
-      {refreshDetails && <Weather country={location} />}
+      <Weather country={weather} />
     </div>
   );
 }
