@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Details from './components/Details';
 import Search from './components/Search';
 import Weather from './components/Weather';
+import axios from 'axios';
 
 const defaultCountry = {
   name: {
@@ -30,13 +31,29 @@ function weatherApi({ country }) {}
 function App() {
   const [location, setLocation] = useState(defaultCountry);
   const [refreshDetails, setRefreshDetails] = useState(false);
-  const [weather, setWeather] = useState({
-    desc: '',
-    icon: '',
-    temp: '',
-    wind: '',
+  const [weatherObj, setWeatherObj] = useState({
+    desc: 'weather desc',
+    icon: '10d',
+    temp: '-10F',
+    wind: '99.00',
   });
-  useEffect(() => {}, [location]);
+  useEffect(() => {
+    // get weather of current location
+    const APIkey = process.env.REACT_APP_OPENWEATHER_APIKEY;
+    const api_url = `http://api.openweathermap.org/data/2.5/weather?q=${location.capital}&appid=${APIkey}`;
+    try {
+      axios.get(api_url).then((response) => {
+        const { weather, main, wind } = response;
+        console.log('weather', weather);
+        console.log('main', main);
+        console.log('wind', wind);
+      });
+
+      //setWeatherObj();
+    } catch (error) {
+      console.error(error);
+    }
+  }, [location]);
   return (
     <div>
       <Search func={setLocation} />
@@ -47,7 +64,7 @@ function App() {
       <h2 className="m-5 text-2xl font-semibold text-stone-100 bg-lime-300">
         Weather in {location.capital[0]}
       </h2>
-      <Weather weather={weather} />
+      <Weather weather={weatherObj} />
     </div>
   );
 }
