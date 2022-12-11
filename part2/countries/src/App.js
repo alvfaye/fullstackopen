@@ -47,7 +47,7 @@ function App() {
       <h2 className="m-5 text-2xl font-semibold text-stone-100 bg-lime-300">
         Weather in {location.capital[0]}
       </h2>
-      <Weather country={weather} />
+      <Weather weather={weather} />
     </div>
   );
 }
