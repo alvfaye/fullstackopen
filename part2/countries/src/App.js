@@ -26,8 +26,6 @@ const defaultCountry = {
   timezones: ['UTC+08:00'],
 };
 
-function weatherApi({ country }) {}
-
 function App() {
   const [location, setLocation] = useState(defaultCountry);
   const [refreshDetails, setRefreshDetails] = useState(false);
@@ -39,9 +37,10 @@ function App() {
   });
   useEffect(() => {
     // get weather of current location
-    const APIkey = process.env.REACT_APP_OPENWEATHER_APIKEY;
-    const api_url = `http://api.openweathermap.org/data/2.5/weather?q=${location.capital}&appid=${APIkey}`;
+    const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553'; //process.env.REACT_APP_OPENWEATHER_APIKEY;
+    const api_url = `http://api.openweathermap.org/data/2.5/weather?q=${location.capital[0]}&appid=${APIkey}`;
     try {
+      console.log('api_url', api_url);
       axios.get(api_url).then((response) => {
         const { weather, main, wind } = response;
         console.log('weather', weather);
