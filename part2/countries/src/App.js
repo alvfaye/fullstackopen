@@ -42,13 +42,19 @@ function App() {
     try {
       console.log('api_url', api_url);
       axios.get(api_url).then((response) => {
-        const { weather, main, wind } = response;
+        const { weather, main, wind } = response.data;
         console.log('weather', weather);
         console.log('main', main);
         console.log('wind', wind);
-      });
 
-      //setWeatherObj();
+        const newWeather = {
+          desc: weather[0].description,
+          icon: weather[0].icon,
+          temp: main.temp,
+          wind: wind.deg,
+        };
+        setWeatherObj(newWeather);
+      });
     } catch (error) {
       console.error(error);
     }
