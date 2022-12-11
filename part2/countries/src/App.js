@@ -36,16 +36,11 @@ function App() {
     wind: '99.00',
   });
   useEffect(() => {
-    // get weather of current location
     const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553'; //process.env.REACT_APP_OPENWEATHER_APIKEY;
     const api_url = `http://api.openweathermap.org/data/2.5/weather?q=${location.capital[0]}&appid=${APIkey}`;
     try {
-      console.log('api_url', api_url);
       axios.get(api_url).then((response) => {
         const { weather, main, wind } = response.data;
-        console.log('weather', weather);
-        console.log('main', main);
-        console.log('wind', wind);
 
         const newWeather = {
           desc: weather[0].description,
