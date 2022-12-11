@@ -29,7 +29,8 @@ function App() {
   const [location, setLocation] = useState(defaultCountry);
   const [refreshDetails, setRefreshDetails] = useState(false);
   useEffect(() => {
-    setRefreshDetails(true);
+    // setRefreshDetails(true);
+    
   }, [location]);
   return (
     <div>
