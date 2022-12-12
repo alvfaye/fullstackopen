@@ -1,8 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const Weather = ({ weather }) => {
-    return (
+  return (
     <div className="bg-slate-300 shadow-xl m-5 w-fit shadow-gray-500 border">
       <div>{weather['desc']}</div>
       <div>{weather['temp']} degrees</div>
@@ -11,6 +10,5 @@ const Weather = ({ weather }) => {
     </div>
   );
 };
-
 
 export default Weather;
