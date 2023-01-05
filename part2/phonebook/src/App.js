@@ -36,7 +36,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3001/persons').then((response) => {
+    axios.get('http://localhost:3004/persons').then((response) => {
       console.log(response.data);
       setPersons(response.data);
       setFilteredList(response.data);
