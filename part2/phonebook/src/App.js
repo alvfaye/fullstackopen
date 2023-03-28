@@ -2,18 +2,7 @@ import { useState, useEffect } from 'react';
 import { Filter, Persons, PersonForm } from './components';
 import axios from 'axios';
 
-const url = 'http://localhost:3004/persons';
-// async function getPersons(url) {
-//   try {
-//     const response = await axios.get(url)
-//     console.log(response.data)
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
-
-// const items = getData(url)
-// console.log(items)
+const url = 'http://localhost:3001/persons';
 
 
 const App = () => {
