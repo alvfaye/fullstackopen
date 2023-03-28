@@ -18,13 +18,6 @@ const url = 'http://localhost:3004/persons';
 
 const App = () => {
   const [persons, setPersons] = useState([]);
-  //   { name: 'Arto Hellas', number: '040-123456', id: 1 },
-  //   { name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
-  //   { name: 'Dan Abramov', number: '12-43-234345', id: 3 },
-  //   { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 },
-  // ]);
-
-  //console.log(getData(url))
 
   const [filteredList, setFilteredList] = useState(persons);
   const addNewContact = (name, number) => {
@@ -57,26 +50,18 @@ const App = () => {
       .then((response) => {
         console.log(response.data);
         setPersons(response.data);
-        setFilteredList(response.data);
-    },[]);
-    // effect
-    // return () => {
-    //   cleanup
-    // }
+        //setFilteredList(response.data);
+    });
+   
   }, []);
 
   return (
     <div>
       <h2>Phonebook</h2>
-
       <Filter handleFilter={filterPersons} />
-
       <h3>Add a new contact</h3>
-
       <PersonForm persons={persons} addContact={addNewContact} />
-
       <h3>Numbers</h3>
-
       <Persons persons={filteredList} />
     </div>
   );
