@@ -15,17 +15,6 @@ const url = 'http://localhost:3004/persons';
 // const items = getData(url)
 // console.log(items)
 
-// async function getData(url) {
-//   const response = await fetch(url, {
-//     method: 'GET',
-//     mode: 'cors',
-//     headers: {
-//       'X-API-Key': 'Testing',
-//       'Content-Type': 'application/json'
-//     }
-//   })
-//   console.log(response)
-// }
 
 const App = () => {
   const [persons, setPersons] = useState([]);
