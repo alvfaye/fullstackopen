@@ -20,6 +20,7 @@ const App = () => {
         id: maxId,
       },
     ];
+
     if (name !== '' && number !== '') {
       setPersons(persons.concat(newContact));
       setFilteredList(filteredList.concat(newContact));
@@ -37,11 +38,10 @@ const App = () => {
     axios
       .get(url)
       .then((response) => {
-        console.log(response.data);
-        setPersons(response.data);
-        //setFilteredList(response.data);
+        console.log("useffect response data",response.data);
+        setPersons(persons.concat(...response.data));
+        setFilteredList(persons.concat(...response.data));
     });
-   
   }, []);
 
   return (
