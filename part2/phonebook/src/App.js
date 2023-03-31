@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Filter, Persons, PersonForm } from './components';
-import axios from 'axios';
+//import axios from 'axios';
 import phoneService from './services/phonebook'
-const url = 'http://localhost:3001/persons';
+//const url = 'http://localhost:3001/persons';
 
 
 const App = () => {
@@ -35,17 +35,20 @@ const App = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(url)
-      .then((response) => {
-        console.log("useffect response data",response.data);
-        setPersons(persons.concat(...response.data));
-        setFilteredList(persons.concat(...response.data));
-      });
+    // axios
+    //   .get(url)
+    //   .then((response) => {
+    //     console.log("useffect response data",response.data);
+    //     setPersons(persons.concat(...response.data));
+    //     setFilteredList(persons.concat(...response.data));
+    //   });
     
     phoneService
-    .getAll()
-  }, []);
+      .getAll()
+      .then((initialData) => {
+        setPersons(persons.concat(...initialData))
+      })
+  });
 
   return (
     <div>
