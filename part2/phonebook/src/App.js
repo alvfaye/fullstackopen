@@ -43,8 +43,12 @@ const App = () => {
     //   });
 
     phoneService.getAll().then((initialData) => {
+      //console.log(...initialData);
       setPersons(persons.concat(...initialData));
+      setFilteredList(filteredList.concat(...initialData));
     });
+
+    // phoneService.getAll().then((persons) => console.log(persons))
   }, []);
 
   return (
