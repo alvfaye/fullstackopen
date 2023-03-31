@@ -3,10 +3,17 @@ import prisma from '../lib/prisma';
 
 const baseUrl = 'http://localhost:3001/persons';
 
-const getAll = async () => {
+const getAll = () => {
   // const request = axios.get(baseUrl);
   // return request.then((response) => response.data);
-  const users = await prisma.phonebook.findMany();
+  //const users = await prisma.phonebook.findMany();
+  const users = prisma.phonebook.findMany();
+
+  if (users === 'undefined')
+    users = {
+      name: '',
+      number: '',
+    };
   console.log('users', users);
   return users;
 };

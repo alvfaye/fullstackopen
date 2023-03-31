@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Filter, Persons, PersonForm } from './components';
 //import axios from 'axios';
-import phoneService from './services/phonebook'
+import phoneService from './services/phonebook';
 //const url = 'http://localhost:3001/persons';
-
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -42,13 +41,11 @@ const App = () => {
     //     setPersons(persons.concat(...response.data));
     //     setFilteredList(persons.concat(...response.data));
     //   });
-    
-    phoneService
-      .getAll()
-      .then((initialData) => {
-        setPersons(persons.concat(...initialData))
-      })
-  });
+
+    phoneService.getAll().then((initialData) => {
+      setPersons(persons.concat(...initialData));
+    });
+  }, []);
 
   return (
     <div>
