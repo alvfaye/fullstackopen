@@ -23,3 +23,52 @@ app.get('/phonebook', async (req, res) => {
     });
   }
 });
+
+app.post('/phonebook', async (req, res) => {
+  try {
+    const { name, number } = req.body;
+    const result = await prisma.phonebook.create({
+      data: {
+        name,
+        number,
+      },
+    });
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({
+      message: 'Something went wrong. Your new record did not save.',
+    });
+  }
+});
+
+app.put('/phonebook/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await prisma.phonebook.update({
+      where: {
+        id: Number(id),
+      },
+    });
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({
+      message: `Something went wrong. Record ${id} was not updated.`,
+    });
+  }
+});
+
+app.delete('/phonebook/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await prisma.phonebook.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({
+      message: `Something went wrong. Record ${id} was not deleted.`,
+    });
+  }
+});
