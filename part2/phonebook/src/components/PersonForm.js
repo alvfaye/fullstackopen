@@ -30,6 +30,7 @@ function PersonForm({ persons, addContact }) {
     setNewName('');
     setNewNumber('');
   };
+  
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()}>

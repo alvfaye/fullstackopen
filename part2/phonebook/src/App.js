@@ -12,17 +12,19 @@ const App = () => {
     let maxId = persons.reduce((a, v) => v.id, 0);
     maxId += 1;
 
-    const newContact = [
-      {
-        name,
-        number,
-        id: maxId,
-      },
-    ];
+    const newContact = {
+      name,
+      number,
+      //id: maxId,
+    };
 
     if (name !== '' && number !== '') {
-      setPersons(persons.concat(newContact));
-      setFilteredList(filteredList.concat(newContact));
+      phoneService.create(newContact).then((data) => {
+        console.log(data, 'record inserted');
+
+        setPersons(persons.concat(data));
+        setFilteredList(filteredList.concat(data));
+      });
     }
   };
 
@@ -34,21 +36,10 @@ const App = () => {
   };
 
   useEffect(() => {
-    // axios
-    //   .get(url)
-    //   .then((response) => {
-    //     console.log("useffect response data",response.data);
-    //     setPersons(persons.concat(...response.data));
-    //     setFilteredList(persons.concat(...response.data));
-    //   });
-
     phoneService.getAll().then((initialData) => {
-      //console.log(...initialData);
       setPersons(persons.concat(...initialData));
       setFilteredList(filteredList.concat(...initialData));
     });
-
-    // phoneService.getAll().then((persons) => console.log(persons))
   }, []);
 
   return (

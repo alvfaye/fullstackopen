@@ -5,12 +5,14 @@ const Person = ({ name, number, onDelete }) => {
     <tr>
       <td className="border px-8 py-4">{name}</td>
       <td className="border px-8 py-4">{number}</td>
-      <button
-        className="rounded-md border-2 border-orange-700"
-        onDelete={onDelete}
-      >
-        Delete
-      </button>
+      <td className="border px-8 py-4">
+        <button
+          className="rounded-md border-2 bg-green-300"
+          onDelete={onDelete}
+        >
+          Delete
+        </button>
+      </td>
     </tr>
   );
 };
