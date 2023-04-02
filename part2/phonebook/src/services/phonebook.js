@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import prisma from '../lib/prisma';
 
-const baseUrl = 'http://localhost:3000/phonebook';
+const baseUrl = 'http://localhost:3001/phonebook';
 
 const getAll = async () => {
   const request = axios.get(baseUrl);
