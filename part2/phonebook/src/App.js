@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Filter, Persons, PersonForm } from './components';
-//import axios from 'axios';
 import phoneService from './services/phonebook';
-//const url = 'http://localhost:3001/persons';
+
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -15,7 +14,7 @@ const App = () => {
     const newContact = {
       name,
       number,
-      //id: maxId,
+ 
     };
 
     if (name !== '' && number !== '') {
@@ -49,7 +48,7 @@ const App = () => {
       <h3>Add a new contact</h3>
       <PersonForm persons={persons} addContact={addNewContact} />
       <h3>Numbers</h3>
-      <Persons persons={filteredList} />
+      <Persons persons={filteredList} updateOrigList={setPersons} updateFilteredList={setFilteredList} />
     </div>
   );
 };

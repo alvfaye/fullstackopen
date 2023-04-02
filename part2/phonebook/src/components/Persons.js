@@ -1,4 +1,5 @@
 import React from 'react';
+import phoneService from '../services/phonebook';
 
 const Person = ({ name, number, onDelete }) => {
   return (
@@ -7,8 +8,8 @@ const Person = ({ name, number, onDelete }) => {
       <td className="border px-8 py-4">{number}</td>
       <td className="border px-8 py-4">
         <button
-          className="rounded-md border-2 bg-green-300"
-          onDelete={onDelete}
+          className="rounded-xl border-2 bg-blue-700 p-2 border-solid text-blue-100 text-xs"
+          onClick={onDelete}
         >
           Delete
         </button>
@@ -16,9 +17,17 @@ const Person = ({ name, number, onDelete }) => {
     </tr>
   );
 };
-function Persons({ persons }) {
+
+function Persons({ persons, updateOrigList, updateFilteredList }) {
   const deleteHandler = (id) => {
     console.log('delete button ', id);
+    const newList = persons.filter((x) => x.id !== id);
+    phoneService.delete(id).then((data) => {
+      console.log(data, `record ${id} deleted!`);
+      updateOrigList(newList);
+      updateFilteredList(newList);
+      console.log('NEWLIST....', newList);
+    });
   };
 
   return (
@@ -35,7 +44,7 @@ function Persons({ persons }) {
             key={person.id}
             name={person.name}
             number={person.number}
-            onDelete={deleteHandler}
+            onDelete={() => deleteHandler(person.id)}
           />
         ))}
       </tbody>
