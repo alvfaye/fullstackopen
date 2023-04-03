@@ -62,8 +62,6 @@ const App = () => {
 
       phoneService.delete(id).then((data) => {
         console.log(data, `record ${id} deleted!`);
-        // updateOrigList(newList);
-        // updateFilteredList(newList);
 
         setShowToast(true);
         setMessage(`Deleted ${data.name}`);
@@ -99,12 +97,7 @@ const App = () => {
       <h3>Add a new contact</h3>
       <PersonForm persons={persons} addContact={addNewContact} />
       <h3>Numbers</h3>
-      <Persons
-        persons={filteredList}
-        handleDelete={deleteContact}
-        // updateOrigList={setPersons}
-        // updateFilteredList={setFilteredList}
-      />
+      <Persons persons={filteredList} handleDelete={deleteContact} />
     </div>
   );
 };
