@@ -5,32 +5,21 @@ function PersonForm({ persons, addContact }) {
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
 
-  const validateName = (e) => {
-    const name = e.target.value;
-
-    console.log('name entered ', name, persons);
-    const found = persons.find((e) => e.name === name);
-    if (found) {
-      alert(`${name} is already added to phonebook`);
-      setNewName('');
-    } else setNewName(name);
-  };
-  const validateNumber = (e) => {
-    const number = e.target.value;
-    setNewNumber(number);
-    console.log('number', parseInt(number));
-    if (Number.isNaN(parseInt(number))) {
-      alert(`you entered an invalid number!`);
-      return;
-    }
-  };
-
   const addNewContact = () => {
+    console.log(`newName ${newName} newNumber ${newNumber}`);
+    const found = persons.find((e) => e.name === newName);
+    if (found) {
+      const ok = window.confirm(
+        `${found.name} is already added to phonebook, replace the old number with a new one?`
+      );
+      if (!ok) return null;
+    }
+
     addContact(newName, newNumber);
     setNewName('');
     setNewNumber('');
   };
-  
+
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -40,9 +29,9 @@ function PersonForm({ persons, addContact }) {
               className="outline-none"
               type="text"
               name="name"
-              value={newName}
               placeholder="Name"
-              onChange={validateName}
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
             />
           </div>
           <div>
@@ -50,9 +39,9 @@ function PersonForm({ persons, addContact }) {
               className="outline-none"
               type="text"
               name="number"
-              value={newNumber}
               placeholder="999999999"
-              onChange={validateNumber}
+              value={newNumber}
+              onChange={(e) => setNewNumber(e.target.value)}
             />
           </div>
           <button

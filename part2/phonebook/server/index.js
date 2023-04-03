@@ -44,9 +44,14 @@ app.post('/phonebook', async (req, res) => {
 app.put('/phonebook/:id', async (req, res) => {
   try {
     const { id } = req.params;
+    const { name, number } = req.body;
     const result = await prisma.phonebook.update({
       where: {
         id: Number(id),
+      },
+      data: {
+        name,
+        number,
       },
     });
     res.json(result);
