@@ -28,7 +28,7 @@ const defaultCountry = {
 
 function App() {
   const [location, setLocation] = useState(defaultCountry);
-  const [refreshDetails, setRefreshDetails] = useState(false);
+  const [refreshDetails, setRefreshDetails] = useState(true);
   const [weatherObj, setWeatherObj] = useState({
     desc: 'weather desc',
     icon: '10d',
@@ -36,7 +36,7 @@ function App() {
     wind: '99.00',
   });
   useEffect(() => {
-    const APIkey = 'b76dcd7e89746c4fd4baa3c11b0b0553'; //process.env.REACT_APP_OPENWEATHER_APIKEY;
+    const APIkey = process.env.REACT_APP_OPENWEATHER_APIKEY;
     const api_url = `http://api.openweathermap.org/data/2.5/weather?q=${location.capital[0]}&appid=${APIkey}`;
     try {
       axios.get(api_url).then((response) => {
