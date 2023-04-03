@@ -18,21 +18,7 @@ const Person = ({ name, number, onDelete }) => {
   );
 };
 
-function Persons({ persons, updateOrigList, updateFilteredList }) {
-  const deleteHandler = (id) => {
-    console.log('delete button ', id);
-    const person = persons.find((x) => x.id === id);
-
-    if (window.confirm(`Delete ${person.name}?`)) {
-      const newList = persons.filter((x) => x.id !== id);
-      phoneService.delete(id).then((data) => {
-        console.log(data, `record ${id} deleted!`);
-        updateOrigList(newList);
-        updateFilteredList(newList);
-        console.log('NEWLIST....', newList);
-      });
-    }
-  };
+function Persons({ persons, handleDelete })  { //, updateOrigList, updateFilteredList }) {
 
   return (
     <table className="m-6 shadow-lg bg-white text-sm leading-none">
@@ -48,7 +34,7 @@ function Persons({ persons, updateOrigList, updateFilteredList }) {
             key={person.id}
             name={person.name}
             number={person.number}
-            onDelete={() => deleteHandler(person.id)}
+            onDelete={() => handleDelete(person.id)}
           />
         ))}
       </tbody>
